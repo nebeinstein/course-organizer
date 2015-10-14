@@ -11,6 +11,7 @@ import objects.Course;
 import objects.Prof;
 import objects.Require;
 import degreeThings.*;
+import display.MainUI;
 
 public class Main {
 	/**
@@ -45,7 +46,7 @@ public class Main {
 		getGrads();
 		getUndergrads();
 		getRequires();
-		new Display();
+		new MainUI();
 	}
 	
 	static void addTree(File file, ArrayList<File> all){
