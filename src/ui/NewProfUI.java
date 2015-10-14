@@ -1,4 +1,4 @@
-package display;
+package ui;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import central.Creating;
 
 public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
@@ -20,6 +22,7 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 		setTitle("New Professor/TA");
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		panel1.setSize(500, 553);
 		panel1.setLayout(null);
@@ -145,11 +148,11 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 		if (e.getSource() == cancel1)
 			this.dispose();
 		if (e.getSource() == save1){
-//			Creating.createProf();
+			Creating.createProf();
 			this.dispose();
 		}
 		if (e.getSource()==save2){
-//			Creating.createProf();
+			Creating.createProf();
 			this.dispose();
 			new NewProfUI();
 		}
@@ -159,8 +162,10 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 			advanceProf();
 		if (e.getSource() == cancel2)
 			root2.dispose();
-		if (e.getSource() == finish1);
-//			Creating.finishAdvance();
+		if (e.getSource() == finish1){
+			Creating.finishAdvance();
+			root2.dispose();
+		}
 	}
 
 	public void findPhoto(JTextField box) {

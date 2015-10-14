@@ -1,4 +1,4 @@
-package display;
+package ui;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;

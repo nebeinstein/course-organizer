@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import objects.Course;
 import objects.Prof;
 import objects.Require;
+import ui.MainUI;
 import degreeThings.*;
-import display.MainUI;
 
 public class Main {
 	/**
