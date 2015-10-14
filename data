@@ -1,0 +1,13 @@
+professor{
+name;
+office;
+phone;
+fax;
+
+email;
+department;type;photo;
+title;
+describe;
+education;research;
+courses;
+}
