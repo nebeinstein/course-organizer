@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import central.Creating;
-
 public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
 	/**
@@ -119,13 +117,18 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 		cancel1.setSize(96, 25);
 		cancel1.addActionListener(this);
 		panel1.add(cancel1);
+		
+		save2.setLocation(264,490);
+		save2.setSize(96,25);
+		save2.addActionListener(this);
+		panel1.add(save2);
 
-		create1.setLocation(264, 490);
-		create1.setSize(96, 25);
-		create1.addActionListener(this);
-		panel1.add(create1);
+		save1.setLocation(148, 490);
+		save1.setSize(96, 25);
+		save1.addActionListener(this);
+		panel1.add(save1);
 
-		advance1.setLocation(148, 490);
+		advance1.setLocation(26, 490);
 		advance1.setSize(96, 25);
 		advance1.addActionListener(this);
 		panel1.add(advance1);
@@ -141,17 +144,23 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 			isProf(false);
 		if (e.getSource() == cancel1)
 			this.dispose();
-		if (e.getSource() == create1)
-			Creating.createProf();
+		if (e.getSource() == save1){
+//			Creating.createProf();
+			this.dispose();
+		}
+		if (e.getSource()==save2){
+//			Creating.createProf();
+			this.dispose();
+			new NewProfUI();
+		}
 		if (e.getSource() == browse1)
 			findPhoto(photobox1);
 		if (e.getSource() == advance1)
 			advanceProf();
-
 		if (e.getSource() == cancel2)
 			root2.dispose();
-		if (e.getSource() == finish1)
-			Creating.finishAdvance();
+		if (e.getSource() == finish1);
+//			Creating.finishAdvance();
 	}
 
 	public void findPhoto(JTextField box) {
