@@ -1,7 +1,9 @@
 package model;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,13 +84,28 @@ public class Archivist {
 			location++;
 		}
 		professors.add(new Prof(professorData));
+		// say(professors.get(0).toString());
+	}
+
+	public void saveProfessor(Prof p) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("")));
+			bw.write("professor{");
+			bw.newLine();
+			bw.write(p.toString());
+			bw.newLine();
+			bw.write("}");
+			bw.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
 		new Archivist();
 	}
 
-	public void say(String s) {
+	private void say(String s) {
 		if (verboseOutputEnabled)
 			System.out.println("Archivist: " + s);
 	}
