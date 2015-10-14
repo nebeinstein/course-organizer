@@ -14,9 +14,9 @@ public class Archivist {
 	 * Constructor for the Archivist class.
 	 */
 	ArrayList<String> lines;
-	ArrayList<Prof> professors;
-	ArrayList<Course> courses;
-	ArrayList<Require> require;
+	public ArrayList<Prof> professors;
+	public ArrayList<Course> courses;
+	public ArrayList<Require> require;
 	int location;
 	private boolean verboseOutputEnabled = true;
 
