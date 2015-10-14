@@ -64,18 +64,19 @@ public class Prof {
 	
 	public String toString(){
 		String s = name;
-		s += " " + office;
-		s += " " + phone;
-		s += " " + fax;
-		s += " " + email;
-		s += " " + dep;
-		s += " " + type;
-		s += " " + photo;
-		s += " " + title;
-		s += " " + describe;
-		s += " " + edu;
-		s += " " + research;
-		s += " " + courses;
+		s += ";" + office;
+		s += ";" + phone;
+		s += ";" + fax;
+		s += ";" + email;
+		s += ";" + dep;
+		s += ";" + type;
+		s += ";" + photo;
+		s += ";" + title;
+		s += ";" + describe;
+		s += ";" + edu;
+		s += ";" + research;
+		s += ";" + courses;
+		s += ";";
 		return s;
 	}
 }
