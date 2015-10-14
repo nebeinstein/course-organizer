@@ -14,10 +14,15 @@ public class MainUIHeader extends JFrame {
 	 */
 	private static final long serialVersionUID = 6719521816566213537L;
 	// Lists
-	static String[] deps = { "--- Select one ---", "BB - Biology and Biotechnology", "BME - Biomedical Engineering",
-			"CS - Computer Science", "ECE - Electrical and Computer Engineering", "ES - Engineering Science",
-			"HU - Humanities & Arts", "MA - Mathematic Sciences", "MU - Music", "PE - Physical Education",
-			"PH - Physics", "RBE - Robotics Engineering" };
+	static String[] deps = { "--- Select one ---", " - Accounting", "AE - Aerospace Engineering", " - Air Science",
+			" - Arabic", " - Art", " - Bioinformatics & Computnl Biol", "BB - Biology and Biotechnology",
+			"BME - Biomedical Engineering", " - Business", "CHE - Chemical Engineering", "CH - Chemistry", " - Chinese",
+			" - Civil Engineering", "CS - Computer Science", " - Data Science", " - Economics",
+			"ECE - Electrical and Computer Engineering", "ES - Engineering Science", " - English",
+			" - Entrepreneurship", "ENV - Environmental Studies", " - Finance", "FPE - FIre Protection", " - German",
+			"GOV - Government, Politcl Sci, & Law", "HI - History", "HU - Humanities & Arts",
+			"MA - Mathematic Sciences", "MU - Music", "PE - Physical Education", "PH - Physics",
+			"RBE - Robotics Engineering" };
 	static String[] years = { "--- Select one ---", "2012-2013", "2013-2014", "2014-2015", "2015-2016" };
 
 	// Menu things

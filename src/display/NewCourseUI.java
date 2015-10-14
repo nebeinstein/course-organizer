@@ -8,6 +8,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 
 import central.Creating;
+import central.DummyClass;
+import objects.Prof;
 
 public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
@@ -15,49 +17,6 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = 8374295929417692446L;
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == enbutt1)
-			isEnroll(true);
-		if (e.getSource() == enbutt2)
-			isEnroll(false);
-		if (e.getSource() == abutt1)
-			isGrade(a1.getText());
-		if (e.getSource() == bbutt1)
-			isGrade(b1.getText());
-		if (e.getSource() == cbutt1)
-			isGrade(c1.getText());
-		if (e.getSource() == nrbutt1)
-			isGrade(nr1.getText());
-		if (e.getSource() == lbutt1)
-			isGrade(l1.getText());
-		if (e.getSource() == ibutt1)
-			isGrade(i1.getText());
-		if (e.getSource() == nfbutt1)
-			isGrade(nf1.getText());
-		if (e.getSource() == cancel3)
-			this.dispose();
-		if (e.getSource() == create2)
-			Creating.createCourse();
-		if (e.getSource() == schedbutt)
-			schedWind();
-
-		if (e.getSource() == fallbutt1)
-			isFall(true);
-		if (e.getSource() == springbutt1)
-			isFall(false);
-		if (e.getSource() == nonebutt1)
-			noLect();
-		if (e.getSource() == nonebutt2)
-			noConf();
-		if (e.getSource() == nonebutt3)
-			noLab();
-		if (e.getSource() == cancel4)
-			root4.dispose();
-		if (e.getSource() == finish2)
-			Creating.finishSched();
-
-	}
 
 	public NewCourseUI() {
 		// Main.getProfs();
@@ -107,11 +66,9 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		probox2.setSize(224, 25);
 		probox2.removeAllItems();
 		probox2.addItem("--- Select One ---");
-		// int i = 0;
-		// while(i<Main.profs.length){
-		// probox2.addItem(Main.profs[i].name);
-		// i++;
-		// }
+		for (Prof p : DummyClass.profs){
+			probox2.addItem(p.name);
+		}
 		probox2.addItem("N/A");
 		panel3.add(probox2);
 
@@ -124,11 +81,9 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		tabox2.setSize(224, 25);
 		tabox2.removeAllItems();
 		tabox2.addItem("--- Select One ---");
-		// i = 0;
-		// while(i<Main.tas.length){
-		// tabox2.addItem(Main.tas[i].name);
-		// i++;
-		// }
+		for (Prof p : DummyClass.tas){
+			tabox2.addItem(p.name);
+		}
 		tabox2.addItem("N/A");
 		panel3.add(tabox2);
 
@@ -257,6 +212,48 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		panel3.add(schedbutt);
 
 		setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == enbutt1)
+			isEnroll(true);
+		if (e.getSource() == enbutt2)
+			isEnroll(false);
+		if (e.getSource() == abutt1)
+			isGrade(a1.getText());
+		if (e.getSource() == bbutt1)
+			isGrade(b1.getText());
+		if (e.getSource() == cbutt1)
+			isGrade(c1.getText());
+		if (e.getSource() == nrbutt1)
+			isGrade(nr1.getText());
+		if (e.getSource() == lbutt1)
+			isGrade(l1.getText());
+		if (e.getSource() == ibutt1)
+			isGrade(i1.getText());
+		if (e.getSource() == nfbutt1)
+			isGrade(nf1.getText());
+		if (e.getSource() == cancel3)
+			this.dispose();
+		if (e.getSource() == create2)
+			Creating.createCourse();
+		
+		if (e.getSource() == schedbutt)
+			schedWind();
+		if (e.getSource() == fallbutt1)
+			isFall(true);
+		if (e.getSource() == springbutt1)
+			isFall(false);
+		if (e.getSource() == nonebutt1)
+			noLect();
+		if (e.getSource() == nonebutt2)
+			noConf();
+		if (e.getSource() == nonebutt3)
+			noLab();
+		if (e.getSource() == cancel4)
+			root4.dispose();
+		if (e.getSource() == finish2)
+			Creating.finishSched();
 	}
 
 	public void schedWind() {

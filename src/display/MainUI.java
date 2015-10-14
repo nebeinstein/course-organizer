@@ -33,7 +33,7 @@ public class MainUI extends MainUIHeader implements ActionListener {
 		setSize(800, 600);
 		setTitle("My WPI Organizer");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 		setLocationRelativeTo(null);
 
 		bar.add(file);
@@ -138,8 +138,9 @@ public class MainUI extends MainUIHeader implements ActionListener {
 	}
 
 	public static void findCourses(JTextArea box) {
-		String path = browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
-		box.setText(box.getText() + path + "\n");
+		System.out.println("Find courses!");
+//		String path = browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
+//		box.setText(box.getText() + path + "\n");
 	}
 
 	public void optWind() {
@@ -147,6 +148,7 @@ public class MainUI extends MainUIHeader implements ActionListener {
 	}
 
 	public void viewProfs() {
+		System.out.println("View Profs!!!");
 		// Main.getProfs();
 		// panelmain.removeAll();
 		// labelmain.setText("MY PROFESSORS");
@@ -197,6 +199,7 @@ public class MainUI extends MainUIHeader implements ActionListener {
 	}
 
 	public void viewTas() {
+		System.out.println("View Tas!!!");
 		// Main.getTas();
 		// panelmain.removeAll();
 		// labelmain.setText("MY TAS");
@@ -357,6 +360,7 @@ public class MainUI extends MainUIHeader implements ActionListener {
 	}
 
 	public void viewUndergrads() {
+		System.out.println("View Undergrads!");
 		// panelmain.removeAll();
 		// labelmain.setText("MY UNDERGRADUATE DEGREES");
 		// panelmain.add(labelmain);

@@ -20,43 +20,15 @@ public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
 	 */
 	private static final long serialVersionUID = 2568085091000360273L;
 
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == degbutt1)
-			isGrad(false);
-		if (e.getSource() == degbutt2)
-			isGrad(true);
-		if (e.getSource() == cancel5)
-			root5.dispose();
-		if (e.getSource() == create3)
-			Creating.createDegree();
-
-	}
-
-	public void isGrad(Boolean thing) {
-		if (thing) {
-			if (degbutt2.isSelected()) {
-				degbutt1.setSelected(false);
-				type1.setEnabled(false);
-				typebox1.setEnabled(false);
-			}
-		} else {
-			if (degbutt1.isSelected()) {
-				degbutt2.setSelected(false);
-				type1.setEnabled(true);
-				typebox1.setEnabled(true);
-			}
-		}
-	}
-
-	public void newDegree() {
-		root5.setSize(400, 270);
-		root5.setTitle("New Degree");
-		root5.setResizable(false);
-		root5.setLocationRelativeTo(null);
+	public NewDegreeUI() {
+		setSize(400, 270);
+		setTitle("New Degree");
+		setResizable(false);
+		setLocationRelativeTo(null);
 
 		panel5.setSize(400, 270);
 		panel5.setLayout(null);
-		root5.add(panel5);
+		add(panel5);
 
 		name3.setLocation(14, 39);
 		name3.setSize(96, 25);
@@ -106,8 +78,33 @@ public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
 		create3.addActionListener(this);
 		panel5.add(create3);
 
-		root5.setVisible(true);
-
+		setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == degbutt1)
+			isGrad(false);
+		if (e.getSource() == degbutt2)
+			isGrad(true);
+		if (e.getSource() == cancel5)
+			this.dispose();
+		if (e.getSource() == create3)
+			Creating.createDegree();
 	}
 
+	public void isGrad(Boolean thing) {
+		if (thing) {
+			if (degbutt2.isSelected()) {
+				degbutt1.setSelected(false);
+				type1.setEnabled(false);
+				typebox1.setEnabled(false);
+			}
+		} else {
+			if (degbutt1.isSelected()) {
+				degbutt2.setSelected(false);
+				type1.setEnabled(true);
+				typebox1.setEnabled(true);
+			}
+		}
+	}
 }

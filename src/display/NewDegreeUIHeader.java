@@ -15,7 +15,6 @@ public class NewDegreeUIHeader extends JFrame {
 	private static final long serialVersionUID = -3770564991288504650L;
 	static String[] undegtypes = { "--- Select one ---", "WPI", "Major", "Minor" };
 	// For Degree Window
-	static JFrame root5 = new JFrame();
 	static JPanel panel5 = new JPanel();
 	static JLabel name3 = new JLabel("Name");
 	static JTextField namebox3 = new JTextField();
