@@ -99,7 +99,7 @@ public class Archivist {
 	 * @param payload
 	 *            - The Object whose data you want to save
 	 */
-	public void saveItem(String type, Object payload) {
+	public void savePayload(String type, Object payload) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("")));
 			bw.write(type + "{");
