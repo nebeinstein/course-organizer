@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import objects.Course;
-import objects.Prof;
+import objects.Professor;
 import objects.Require;
 
 public class Archivist {
@@ -16,20 +16,21 @@ public class Archivist {
 	 * Interprets Jack's data to produce usable objects.
 	 */
 	ArrayList<String> lines;
-	public ArrayList<Prof> professors;
+	public ArrayList<Professor> professors;
 	public ArrayList<Course> courses;
 	public ArrayList<Require> require;
 	int location;
 	private boolean verboseOutputEnabled = true;
+	private final String datafile = "data";
 
 	/**
 	 * Constructor for the archivist class.
 	 */
 	public Archivist() {
 		this.lines = new ArrayList<String>();
-		this.professors = new ArrayList<Prof>();
+		this.professors = new ArrayList<Professor>();
 		this.location = 0;
-		this.loadFile("data");
+		this.loadFile(datafile);
 		this.interpret();
 	}
 
@@ -43,6 +44,7 @@ public class Archivist {
 			if (s.contains("professor")) {
 				this.loadProfessor();
 			}
+			location++;
 		}
 		this.say("Done.");
 		this.say(this.professors.size() + " Professors Loaded...");
@@ -73,11 +75,13 @@ public class Archivist {
 	 */
 	public void loadProfessor() {
 		String s = this.lines.get(location);
-		String[] professorData = new String[13];
+		String[] professorData = new String[14];
 		int depth = 0;
-		while (!s.contains("}")) {
+		while (depth<13) {
 			s = this.lines.get(location);
 			if (s.contains(";")) {
+				if(s.contains("{"))
+					s = s.substring(s.indexOf("{") + 1);
 				String[] data = s.split(";");
 				for (String point : data) {
 					professorData[depth] = point;
@@ -86,8 +90,8 @@ public class Archivist {
 			}
 			location++;
 		}
-		professors.add(new Prof(professorData));
-		// say(professors.get(0).toString());
+		professors.add(new Professor(professorData));
+		say(professors.get(professors.size()-1).toString());
 	}
 
 	/**
@@ -100,16 +104,31 @@ public class Archivist {
 	 *            - The Object whose data you want to save
 	 */
 	public void savePayload(String type, Object payload) {
+		say("Saving...");
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("")));
-			bw.write(type + "{");
+			say("Opening file...");
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(
+					datafile),true));
+			say("Writing header...");
 			bw.newLine();
+			bw.write(type + "{");
+			say("Done.");
+			bw.newLine();
+			say("Writing data...");
 			bw.write(payload.toString());
+			say("Done.");
 			bw.newLine();
 			bw.write("}");
+			bw.newLine();
+			say("Closing file...");
 			bw.close();
+			say("File closed.");
 		} catch (Exception ex) {
 			ex.printStackTrace();
+		}
+		say("Save complete.");
+		if(type.equals("professor")){
+			professors.add((Professor)payload);
 		}
 	}
 

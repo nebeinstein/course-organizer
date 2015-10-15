@@ -1,6 +1,6 @@
 package objects;
 
-public class Prof {
+public class Professor {
 	/**
 	 * Written by Nicole Beinstein
 	 */
@@ -19,7 +19,7 @@ public class Prof {
 	public String research;
 	public String courses;
 	
-	public Prof(String[] professorData){
+	public Professor(String[] professorData){
 		int i = 0;
 		name = professorData[i++];
 		office = professorData[i++];
@@ -36,7 +36,7 @@ public class Prof {
 		courses = professorData[i++];
 	}
 
-	public Prof(String Name, String Office, String Phone, String Fax,
+	public Professor(String Name, String Office, String Phone, String Fax,
 			String Email, String Dep) {
 		name = Name;
 		office = Office;

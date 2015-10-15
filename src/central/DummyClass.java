@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import degreeThings.Grad;
 import degreeThings.UnderGrad;
 import objects.Course;
-import objects.Prof;
+import objects.Professor;
 import objects.Require;
 
 public class DummyClass {
-	public static Prof[] profs = {};
-	public static Prof[] tas = {};
+	public static File f;
+	public static ArrayList<Object> l;
+	public static Professor[] profs = {};
+	public static Professor[] tas = {};
 	public static Course[] classes = {};
 	public static Require[] requires = {};
 	public static UnderGrad[] undergrads = {};
