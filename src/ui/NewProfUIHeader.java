@@ -1,4 +1,4 @@
-package display;
+package ui;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -37,7 +37,8 @@ public class NewProfUIHeader extends JFrame {
 	static JTextField photobox1 = new JTextField();
 	JButton browse1 = new JButton("Browse");
 	JButton cancel1 = new JButton("Cancel");
-	JButton create1 = new JButton("Create");
+	JButton save1 = new JButton("Save and Close");
+	JButton save2 = new JButton("Save and Create Another");
 	JButton advance1 = new JButton("Advanced");
 
 	// For advanced prof window
