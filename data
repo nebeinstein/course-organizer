@@ -1,3 +1,7 @@
 professor{
 name;office;phone;fax;email;department;type;photo;title;describe;education;research;courses;
 }
+
+professor{
+Edward Retana;Artroom 137;555-5555;444-4444;ed@example.com;Art;cool;NA;Master of Art;A cool dude.;education;research;courses;
+}

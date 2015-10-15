@@ -10,6 +10,8 @@ import objects.Prof;
 import objects.Require;
 
 public class DummyClass {
+	public static File f;
+	public static ArrayList<Object> l;
 	public static Prof[] profs = {};
 	public static Prof[] tas = {};
 	public static Course[] classes = {};
