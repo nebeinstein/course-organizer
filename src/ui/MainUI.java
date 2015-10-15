@@ -16,7 +16,7 @@ import javax.swing.table.TableCellRenderer;
 
 import objects.Course;
 import objects.Require;
-
+import central.DummyClass;
 import central.Main;
 import control.Controller;
 import degreeThings.Degree;
@@ -219,23 +219,25 @@ public class MainUI extends MainUIHeader implements UI {
 		panelmain.add(labelmain);
 
 		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor", "TA", "Enrolled", "Grade" };
-		Object[][] data = new Object[Main.classes.length][8];
+		//String[][] data = new String[DummyClass.classes.length][8];
 
-		String[] parts = {};
-
-		int i = 0;
-		while (i < data.length) {
-			parts = Main.classes[i].dep.split(" - ");
-
-			if (Main.classes[i].enrolled) {
-				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
-			} else {
-				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
-			}
-			i++;
-		}
+		String[][] data= new String[1][8];
+		String[] parts = {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A","Yes","In Progress"};
+		data[0]=parts;
+		
+//		int i = 0;
+//		while (i < data.length) {
+//			parts = Main.classes[i].dep.split(" - ");
+//
+//			if (Main.classes[i].enrolled) {
+//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
+//			} else {
+//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
+//			}
+//			i++;
+//		}
 
 		JTable classtable = new JTable(data, columnNames) {
 			private static final long serialVersionUID = -8052879652501507761L;
