@@ -8,7 +8,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import control.Controller;
+import control.MainUIController;
 
 public class MainUIHeader extends JFrame {
 	/**
@@ -16,7 +16,7 @@ public class MainUIHeader extends JFrame {
 	 */
 	private static final long serialVersionUID = 6719521816566213537L;
 	// Controller
-	Controller ctrl;
+	MainUIController ctrl;
 	
 	// Lists
 	static String[] deps = { "--- Select one ---", " - Accounting", "AE - Aerospace Engineering", " - Air Science",

@@ -16,9 +16,8 @@ import javax.swing.table.TableCellRenderer;
 
 import objects.Course;
 import objects.Require;
-import central.DummyClass;
-import central.Main;
 import control.Controller;
+import control.MainUIController;
 import degreeThings.Degree;
 
 public class MainUI extends MainUIHeader implements UI {
@@ -213,31 +212,12 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void viewCourses() {
-		// Main.getCourses();
+		String[][] data = ctrl.getCourseData();
 		panelmain.removeAll();
 		labelmain.setText("MY COURSES");
 		panelmain.add(labelmain);
 
 		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor", "TA", "Enrolled", "Grade" };
-		//String[][] data = new String[DummyClass.classes.length][8];
-
-		String[][] data= new String[1][8];
-		String[] parts = {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A","Yes","In Progress"};
-		data[0]=parts;
-		
-//		int i = 0;
-//		while (i < data.length) {
-//			parts = Main.classes[i].dep.split(" - ");
-//
-//			if (Main.classes[i].enrolled) {
-//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
-//			} else {
-//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
-//			}
-//			i++;
-//		}
 
 		JTable classtable = new JTable(data, columnNames) {
 			private static final long serialVersionUID = -8052879652501507761L;
@@ -256,7 +236,7 @@ public class MainUI extends MainUIHeader implements UI {
 		classtable.getColumnModel().getColumn(2).setMaxWidth(40);
 		classtable.getColumnModel().getColumn(3).setMaxWidth(50);
 		classtable.getColumnModel().getColumn(6).setMaxWidth(60);
-		classtable.getColumnModel().getColumn(7).setMaxWidth(60);
+		classtable.getColumnModel().getColumn(7).setMaxWidth(75);
 		classtable.setSize(750, 500);
 		classtable.setLocation(0, 0);
 
@@ -558,7 +538,7 @@ public class MainUI extends MainUIHeader implements UI {
 
 	@Override
 	public void addController(Controller c) {
-		this.ctrl = c;
+		this.ctrl = (MainUIController) c;
 
 	}
 

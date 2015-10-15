@@ -55,6 +55,26 @@ public class MainUIController implements Controller {
 		 */
 	}
 
+	public String[][] getCourseData(){
+		String[][] data = new String[1][8];
+		String[] parts = {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A","Yes","In Progress"};
+		data[0]=parts;		
+//				int i = 0;
+//				while (i < data.length) {
+//					parts = Main.classes[i].dep.split(" - ");
+		//
+//					if (Main.classes[i].enrolled) {
+//						data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//								Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
+//					} else {
+//						data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//								Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
+//					}
+//					i++;
+//				}
+		return data;
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
