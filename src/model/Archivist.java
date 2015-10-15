@@ -13,7 +13,7 @@ import objects.Require;
 
 public class Archivist {
 	/**
-	 * Constructor for the Archivist class.
+	 * Interprets Jack's data to produce usable objects.
 	 */
 	ArrayList<String> lines;
 	public ArrayList<Prof> professors;
@@ -22,6 +22,9 @@ public class Archivist {
 	int location;
 	private boolean verboseOutputEnabled = true;
 
+	/**
+	 * Constructor for the archivist class.
+	 */
 	public Archivist() {
 		this.lines = new ArrayList<String>();
 		this.professors = new ArrayList<Prof>();
@@ -87,12 +90,21 @@ public class Archivist {
 		// say(professors.get(0).toString());
 	}
 
-	public void saveProfessor(Prof p) {
+	/**
+	 * Saves the given object's toString() data in the datafile as the type
+	 * specified by the given String in the file.
+	 * 
+	 * @param type
+	 *            - The name of the type.
+	 * @param payload
+	 *            - The Object whose data you want to save
+	 */
+	public void saveItem(String type, Object payload) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("")));
-			bw.write("professor{");
+			bw.write(type + "{");
 			bw.newLine();
-			bw.write(p.toString());
+			bw.write(payload.toString());
 			bw.newLine();
 			bw.write("}");
 			bw.close();
