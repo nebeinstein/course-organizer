@@ -21,6 +21,27 @@ public class Course {
 	String confdays;
 	String labdays;
 	String term;
+	/**
+	 * Gets the department name for this course
+	 * @returns The department(s) the course falls under as a string.
+	 */
+	public String getDepartment(){
+		return name.split("-")[0];
+	}
+	/**
+	 * Gets the number for this course
+	 * @returns The course number as a string.
+	 */
+	public String getCourseNumber(){
+		return name.split("-")[1];
+	}
+	/**
+	 * Gets the course name for this course.
+	 * @returns The course name as a string.
+	 */
+	public String getCourseName(){
+		return name.split("-")[2];
+	}
 
 	public Course(String Name, String Num, String Dep, String Profname,
 			String Taname, String Credits) {
