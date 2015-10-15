@@ -21,6 +21,29 @@ public class Course {
 	String confdays;
 	String labdays;
 	String term;
+	
+	public Course(String Name, String Profname,
+			String Taname, String Credits) {
+		name = Name;
+		profname = Profname;
+		taname = Taname;
+		credits = Credits;
+	}
+	
+	public boolean passed() {
+		return "ABC".contains(grade);
+	}
+
+	public void enroll(int Year, String Term, String Section) {
+		enrolled = true;
+		year = Year;
+		term = Term;
+	}
+	
+	public void finish(String Grade){
+		grade = Grade;
+	}
+	
 	/**
 	 * Gets the department name for this course
 	 * @returns The department(s) the course falls under as a string.
@@ -41,24 +64,6 @@ public class Course {
 	 */
 	public String getCourseName(){
 		return name.split("-")[2];
-	}
-
-	public Course(String Name, String Num, String Dep, String Profname,
-			String Taname, String Credits) {
-		name = Name;
-		profname = Profname;
-		taname = Taname;
-		credits = Credits;
-	}
-
-	public boolean passed() {
-		return "ABC".contains(grade);
-	}
-
-	public void enroll(int Year, String Term, String Section) {
-		enrolled = true;
-		year = Year;
-		term = Term;
 	}
 
 	public void schedSetup(String list, String days, String startTime,

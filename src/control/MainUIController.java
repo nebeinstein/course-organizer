@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import model.Archivist;
+import central.DummyClass;
+import objects.Course;
 import ui.MainUI;
 import ui.NewCourseUI;
 import ui.NewDegreeUI;
@@ -45,44 +46,23 @@ public class MainUIController implements Controller {
 			ui.howToWind();
 		if (e.getSource() == ui.about)
 			ui.aboutWind();
-
-		/*
-		 * if (Arrays.asList(underbutts).contains(e.getSource()))
-		 * viewDegree(underbutts,
-		 * Arrays.asList(underbutts).indexOf(e.getSource()), true); if
-		 * (Arrays.asList(gradbutts).contains(e.getSource()))
-		 * viewDegree(gradbutts,
-		 * Arrays.asList(gradbutts).indexOf(e.getSource()), false);
-		 */
 	}
 
-	public String[][] getCourseData(){
-		String[][] data = new String[Archivist.courses.size()][8];
-		String[] parts;
-		int i=0;
-		while (i < data.length){
+	public String[][] getCourseData() {
+		String[][] data = new String[DummyClass.courses.length][8];
+		int i = 0;
+		while (i < data.length) {
+			Course c = DummyClass.courses[i];
 			String enrolled = "No";
-			if (Archivist.courses.get(i).enrolled) enrolled="Yes";
-			data[i] = new String[] {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A",enrolled,"In Progress"};
+			if (c.enrolled)
+				enrolled = "Yes";
+			data[i] = new String[] { c.credits, c.getCourseName(), c.getDepartment(), c.getCourseNumber(), c.profname,
+					c.taname, enrolled, "N/A" };
 			i++;
 		}
-//				int i = 0;
-//				while (i < data.length) {
-//					parts = Main.classes[i].dep.split(" - ");
-		//
-//					if (Main.classes[i].enrolled) {
-//						data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//								Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
-//					} else {
-//						data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//								Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
-//					}
-//					i++;
-//				}
 		return data;
-		
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub

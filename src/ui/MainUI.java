@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
@@ -84,25 +83,6 @@ public class MainUI extends MainUIHeader implements UI {
 		panelmain.add(labelmain);
 
 		setVisible(true);
-	}
-
-	public static String browseComp(String direct) {
-		String output = "";
-		// fc1.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		// fc1.setCurrentDirectory(new File(direct));
-		// int returnVal = fc1.showOpenDialog(MainUI.this);
-		// if(returnVal == JFileChooser.APPROVE_OPTION){
-		// File file = fc1.getSelectedFile();
-		// output = file.getPath();
-		// }
-		return output;
-	}
-
-	public static void findCourses(JTextArea box) {
-		System.out.println("Find courses!");
-		// String path =
-		// browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
-		// box.setText(box.getText() + path + "\n");
 	}
 
 	public void optWind() {
@@ -247,7 +227,6 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void viewDegree(Degree deg, JPanel panel) {
-
 		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept", "Num", "Class Name" };
 		Object[][][] data = new Object[deg.requirements.size()][][];
 		String[] parts = {};
