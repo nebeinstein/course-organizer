@@ -262,14 +262,14 @@ public class MainUI extends MainUIHeader implements ActionListener {
 
 		int i = 0;
 		while (i < data.length) {
-			parts = Main.classes[i].dep.split(" - ");
+//			parts = Main.classes[i].dep.split(" - ");
 
 			if (Main.classes[i].enrolled) {
-				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
+//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
 			} else {
-				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
+//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
+//						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
 			}
 			i++;
 		}
@@ -314,9 +314,9 @@ public class MainUI extends MainUIHeader implements ActionListener {
 			int f = 0;
 			while (f < data[i].length) {
 				Course current = currentreq.courses[f];
-				parts = current.dep.split(" - ");
-				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
-						current.name };
+//				parts = current.dep.split(" - ");
+//				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
+//						current.name };
 				f++;
 			}
 			i++;

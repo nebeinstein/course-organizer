@@ -144,7 +144,7 @@ public class Main {
 		while (i<classFiles.size()){
 			classes[i] = new Course(info[i][0], info[i][2], info[i][1], info[i][3], info[i][4], info[i][5]);
 			if (Boolean.valueOf(info[i][6])) classes[i].enrolled = true;
-			classes[i].pass(info[i][7]);
+//			classes[i].pass(info[i][7]);
 			i++;
 		}
 	}
