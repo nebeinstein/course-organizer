@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+import model.Archivist;
 import ui.MainUI;
 import ui.NewCourseUI;
 import ui.NewDegreeUI;
@@ -56,9 +57,15 @@ public class MainUIController implements Controller {
 	}
 
 	public String[][] getCourseData(){
-		String[][] data = new String[1][8];
-		String[] parts = {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A","Yes","In Progress"};
-		data[0]=parts;		
+		String[][] data = new String[Archivist.courses.size()][8];
+		String[] parts;
+		int i=0;
+		while (i < data.length){
+			String enrolled = "No";
+			if (Archivist.courses.get(i).enrolled) enrolled="Yes";
+			data[i] = new String[] {"3.000","Classical Mechanics","PH","511","L.R. Ram-Mohan","N/A",enrolled,"In Progress"};
+			i++;
+		}
 //				int i = 0;
 //				while (i < data.length) {
 //					parts = Main.classes[i].dep.split(" - ");
@@ -73,6 +80,7 @@ public class MainUIController implements Controller {
 //					i++;
 //				}
 		return data;
+		
 	}
 	
 	@Override

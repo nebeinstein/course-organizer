@@ -18,5 +18,7 @@ public class DummyClass {
 	public static Require[] requires = {};
 	public static UnderGrad[] undergrads = {};
 	public static Grad[] grads = {};
-	public static Require[] reqs = {}; 
+	public static Require[] reqs = {};
+	
+	public Course fake = new Course(null, null, null, null, null, null);
 }

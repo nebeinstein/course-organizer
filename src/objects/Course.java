@@ -5,7 +5,7 @@ public class Course {
 	 * Written by Nicole Beinstein
 	 */
 
-	public String name;
+	public String name; //PH-511-Classical Mechanics
 	public String profname;
 	public String taname;
 	public String credits;
