@@ -1,6 +1,5 @@
 package objects;
 
-
 public class Course {
 	/**
 	 * Written by Nicole Beinstein
@@ -30,7 +29,7 @@ public class Course {
 		taname = Taname;
 		credits = Credits;
 	}
-	
+
 	public boolean passed() {
 		return "ABC".contains(grade);
 	}
