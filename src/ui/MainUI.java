@@ -1,9 +1,8 @@
 package ui;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,9 +18,10 @@ import objects.Course;
 import objects.Require;
 
 import central.Main;
+import control.Controller;
 import degreeThings.Degree;
 
-public class MainUI extends MainUIHeader implements ActionListener {
+public class MainUI extends MainUIHeader implements UI {
 	/**
 	 * Written by Nicole Beinstein
 	 */
@@ -29,7 +29,9 @@ public class MainUI extends MainUIHeader implements ActionListener {
 
 	static JFileChooser fc1 = new JFileChooser();
 
-	public MainUI() {
+	public MainUI(Controller c) {
+		addController(c);
+		ctrl.addUI(this);
 		setSize(800, 600);
 		setTitle("My WPI Organizer");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -58,20 +60,20 @@ public class MainUI extends MainUIHeader implements ActionListener {
 		help.add(about);
 		add(bar, BorderLayout.NORTH);
 
-		options.addActionListener(this);
-		exit.addActionListener(this);
-		require.addActionListener(this);
-		course.addActionListener(this);
-		prof.addActionListener(this);
-		deg.addActionListener(this);
-		myunder.addActionListener(this);
-		mygrad.addActionListener(this);
-		mycourses.addActionListener(this);
-		mysched.addActionListener(this);
-		myprofs.addActionListener(this);
-		mytas.addActionListener(this);
-		howto.addActionListener(this);
-		about.addActionListener(this);
+		options.addActionListener(ctrl);
+		exit.addActionListener(ctrl);
+		require.addActionListener(ctrl);
+		course.addActionListener(ctrl);
+		prof.addActionListener(ctrl);
+		deg.addActionListener(ctrl);
+		myunder.addActionListener(ctrl);
+		mygrad.addActionListener(ctrl);
+		mycourses.addActionListener(ctrl);
+		mysched.addActionListener(ctrl);
+		myprofs.addActionListener(ctrl);
+		mytas.addActionListener(ctrl);
+		howto.addActionListener(ctrl);
+		about.addActionListener(ctrl);
 
 		panelmain.setSize(800, 600);
 		panelmain.setLayout(null);
@@ -83,46 +85,6 @@ public class MainUI extends MainUIHeader implements ActionListener {
 		panelmain.add(labelmain);
 
 		setVisible(true);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == exit)
-			System.exit(0);
-		if (e.getSource() == course)
-			new NewCourseUI();
-		if (e.getSource() == prof)
-			new NewProfUI();
-		if (e.getSource() == deg)
-			new NewDegreeUI();
-		if (e.getSource() == require)
-			new NewRequirementUI();
-		if (e.getSource() == options)
-			optWind();
-
-		if (e.getSource() == myprofs)
-			viewProfs();
-		if (e.getSource() == mytas)
-			viewTas();
-		if (e.getSource() == mycourses)
-			viewCourses();
-		if (e.getSource() == myunder)
-			viewUndergrads();
-		if (e.getSource() == mygrad)
-			viewGrads();
-
-		if (e.getSource() == howto)
-			howToWind();
-		if (e.getSource() == about)
-			aboutWind();
-
-		/*
-		 * if (Arrays.asList(underbutts).contains(e.getSource()))
-		 * viewDegree(underbutts,
-		 * Arrays.asList(underbutts).indexOf(e.getSource()), true); if
-		 * (Arrays.asList(gradbutts).contains(e.getSource()))
-		 * viewDegree(gradbutts,
-		 * Arrays.asList(gradbutts).indexOf(e.getSource()), false);
-		 */
 	}
 
 	public static String browseComp(String direct) {
@@ -139,8 +101,9 @@ public class MainUI extends MainUIHeader implements ActionListener {
 
 	public static void findCourses(JTextArea box) {
 		System.out.println("Find courses!");
-//		String path = browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
-//		box.setText(box.getText() + path + "\n");
+		// String path =
+		// browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
+		// box.setText(box.getText() + path + "\n");
 	}
 
 	public void optWind() {
@@ -455,7 +418,7 @@ public class MainUI extends MainUIHeader implements ActionListener {
 		// underbutts[i] = new JButton(Main.undergrads[i].name + " " +
 		// Main.undergrads[i].kind);
 		// underbutts[i].setSize(125,25);
-		// underbutts[i].addActionListener(this);
+		// underbutts[i].addActionListener(ctrl);
 		// if (i == 0) underbutts[i].setLocation(20,25);
 		// else if (Main.undergrads[i].kind.equals("Major") &&
 		// Main.undergrads[i-1].kind.equals("Minor")){
@@ -589,6 +552,24 @@ public class MainUI extends MainUIHeader implements ActionListener {
 
 	public void aboutWind() {
 		System.out.println("About Window");
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+
+	}
+
+	@Override
+	public void buildUI() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public JComponent getComponentByName(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

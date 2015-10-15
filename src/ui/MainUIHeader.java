@@ -8,11 +8,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import control.Controller;
+
 public class MainUIHeader extends JFrame {
 	/**
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = 6719521816566213537L;
+	// Controller
+	Controller ctrl;
+	
 	// Lists
 	static String[] deps = { "--- Select one ---", " - Accounting", "AE - Aerospace Engineering", " - Air Science",
 			" - Arabic", " - Art", " - Bioinformatics & Computnl Biol", "BB - Biology and Biotechnology",
@@ -26,49 +31,49 @@ public class MainUIHeader extends JFrame {
 	static String[] years = { "--- Select one ---", "2012-2013", "2013-2014", "2014-2015", "2015-2016" };
 
 	// Menu things
-	static JMenuBar bar = new JMenuBar();
+	 JMenuBar bar = new JMenuBar();
 
 	// File menu
-	static JMenu file = new JMenu("File");
-	static JMenuItem options = new JMenuItem("Options");
-	static JMenuItem exit = new JMenuItem("Exit");
+	 JMenu file = new JMenu("File");
+	public  JMenuItem options = new JMenuItem("Options");
+	public  JMenuItem exit = new JMenuItem("Exit");
 	// New menu in file menu
-	static JMenu New = new JMenu("New");
-	static JMenuItem deg = new JMenuItem("Degree");
-	static JMenuItem require = new JMenuItem("Requirement");
-	static JMenuItem course = new JMenuItem("Course");
-	static JMenuItem prof = new JMenuItem("Professor/TA");
+	 JMenu New = new JMenu("New");
+	public  JMenuItem deg = new JMenuItem("Degree");
+	public  JMenuItem require = new JMenuItem("Requirement");
+	public  JMenuItem course = new JMenuItem("Course");
+	public  JMenuItem prof = new JMenuItem("Professor/TA");
 
 	// View Menu
-	static JMenu view = new JMenu("View");
-	static JMenuItem mycourses = new JMenuItem("My Courses");
-	static JMenuItem myprofs = new JMenuItem("My Professors");
-	static JMenuItem mytas = new JMenuItem("My TAs");
-	static JMenuItem mysched = new JMenuItem("My Schedule");
-	static JMenu mydeg = new JMenu("My Degrees");
+	 JMenu view = new JMenu("View");
+	public  JMenuItem mycourses = new JMenuItem("My Courses");
+	public  JMenuItem myprofs = new JMenuItem("My Professors");
+	public  JMenuItem mytas = new JMenuItem("My TAs");
+	public  JMenuItem mysched = new JMenuItem("My Schedule");
+	 JMenu mydeg = new JMenu("My Degrees");
 	// Deg Menu in View Menu
-	static JMenuItem myunder = new JMenuItem("Undergraduate");
-	static JMenuItem mygrad = new JMenuItem("Graduate");
+	public  JMenuItem myunder = new JMenuItem("Undergraduate");
+	public  JMenuItem mygrad = new JMenuItem("Graduate");
 
 	// Help menu
-	static JMenu help = new JMenu("Help");
-	static JMenuItem about = new JMenuItem("About");
-	static JMenuItem howto = new JMenuItem("How to Use");
+	 JMenu help = new JMenu("Help");
+	public  JMenuItem about = new JMenuItem("About");
+	public  JMenuItem howto = new JMenuItem("How to Use");
 
 	// For main window
-	static JPanel panelmain = new JPanel();
-	static JLabel labelmain = new JLabel();
+	 JPanel panelmain = new JPanel();
+	 JLabel labelmain = new JLabel();
 
 	// For viewing degrees
-	static JPanel bigpanel1 = new JPanel();
-	static JPanel bigpanel2 = new JPanel();
-	static JPanel bigpanel3 = new JPanel();
-	static JPanel bigpanel4 = new JPanel();
-	static JPanel bigpanel5 = new JPanel();
+	 JPanel bigpanel1 = new JPanel();
+	 JPanel bigpanel2 = new JPanel();
+	 JPanel bigpanel3 = new JPanel();
+	 JPanel bigpanel4 = new JPanel();
+	 JPanel bigpanel5 = new JPanel();
 
-	static JScrollPane bigscroll1;
-	static JScrollPane bigscroll2;
-	static JScrollPane bigscroll3;
-	static JScrollPane bigscroll4;
-	static JScrollPane bigscroll5;
+	 JScrollPane bigscroll1;
+	 JScrollPane bigscroll2;
+	 JScrollPane bigscroll3;
+	 JScrollPane bigscroll4;
+	 JScrollPane bigscroll5;
 }

@@ -1,25 +1,25 @@
 package ui;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-
-import central.Creating;
 import central.DummyClass;
+import control.Controller;
 import objects.Prof;
 
-public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
+public class NewCourseUI extends NewCourseUIHeader implements UI {
 
 	/**
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = 8374295929417692446L;
 
-	public NewCourseUI() {
+	public NewCourseUI(Controller c) {
+		addController(c);
+		ctrl.addUI(this);
 		// Main.getProfs();
 		// Main.getTas();
 		setSize(500, 553);
@@ -67,7 +67,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		probox2.setSize(224, 25);
 		probox2.removeAllItems();
 		probox2.addItem("--- Select One ---");
-		for (Prof p : DummyClass.profs){
+		for (Prof p : DummyClass.profs) {
 			probox2.addItem(p.name);
 		}
 		probox2.addItem("N/A");
@@ -82,7 +82,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		tabox2.setSize(224, 25);
 		tabox2.removeAllItems();
 		tabox2.addItem("--- Select One ---");
-		for (Prof p : DummyClass.tas){
+		for (Prof p : DummyClass.tas) {
 			tabox2.addItem(p.name);
 		}
 		tabox2.addItem("N/A");
@@ -104,7 +104,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		enbutt1.setLocation(145, 283);
 		enbutt1.setSize(15, 15);
-		enbutt1.addActionListener(this);
+		enbutt1.addActionListener(ctrl);
 		panel3.add(enbutt1);
 
 		yes1.setLocation(145, 279);
@@ -114,7 +114,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		enbutt2.setLocation(245, 283);
 		enbutt2.setSize(15, 15);
-		enbutt2.addActionListener(this);
+		enbutt2.addActionListener(ctrl);
 		panel3.add(enbutt2);
 
 		no1.setLocation(245, 279);
@@ -129,7 +129,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		abutt1.setLocation(145, 325);
 		abutt1.setSize(15, 15);
-		abutt1.addActionListener(this);
+		abutt1.addActionListener(ctrl);
 		panel3.add(abutt1);
 
 		a1.setLocation(120, 319);
@@ -139,7 +139,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		bbutt1.setLocation(200, 325);
 		bbutt1.setSize(15, 15);
-		bbutt1.addActionListener(this);
+		bbutt1.addActionListener(ctrl);
 		panel3.add(bbutt1);
 
 		b1.setLocation(175, 319);
@@ -149,7 +149,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		cbutt1.setLocation(255, 325);
 		cbutt1.setSize(15, 15);
-		cbutt1.addActionListener(this);
+		cbutt1.addActionListener(ctrl);
 		panel3.add(cbutt1);
 
 		c1.setLocation(230, 319);
@@ -159,7 +159,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		nrbutt1.setLocation(310, 325);
 		nrbutt1.setSize(15, 15);
-		nrbutt1.addActionListener(this);
+		nrbutt1.addActionListener(ctrl);
 		panel3.add(nrbutt1);
 
 		nr1.setLocation(288, 319);
@@ -169,7 +169,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		lbutt1.setLocation(365, 325);
 		lbutt1.setSize(15, 15);
-		lbutt1.addActionListener(this);
+		lbutt1.addActionListener(ctrl);
 		panel3.add(lbutt1);
 
 		l1.setLocation(340, 319);
@@ -179,7 +179,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		ibutt1.setLocation(145, 355);
 		ibutt1.setSize(15, 15);
-		ibutt1.addActionListener(this);
+		ibutt1.addActionListener(ctrl);
 		panel3.add(ibutt1);
 
 		i1.setLocation(120, 349);
@@ -189,7 +189,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		nfbutt1.setLocation(200, 355);
 		nfbutt1.setSize(15, 15);
-		nfbutt1.addActionListener(this);
+		nfbutt1.addActionListener(ctrl);
 		panel3.add(nfbutt1);
 
 		nf1.setLocation(203, 349);
@@ -199,62 +199,20 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		cancel3.setLocation(380, 490);
 		cancel3.setSize(96, 25);
-		cancel3.addActionListener(this);
+		cancel3.addActionListener(ctrl);
 		panel3.add(cancel3);
 
 		create2.setLocation(266, 490);
 		create2.setSize(96, 25);
-		create2.addActionListener(this);
+		create2.addActionListener(ctrl);
 		panel3.add(create2);
 
 		schedbutt.setLocation(150, 490);
 		schedbutt.setSize(96, 25);
-		schedbutt.addActionListener(this);
+		schedbutt.addActionListener(ctrl);
 		panel3.add(schedbutt);
 
 		setVisible(true);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == enbutt1)
-			isEnroll(true);
-		if (e.getSource() == enbutt2)
-			isEnroll(false);
-		if (e.getSource() == abutt1)
-			isGrade(a1.getText());
-		if (e.getSource() == bbutt1)
-			isGrade(b1.getText());
-		if (e.getSource() == cbutt1)
-			isGrade(c1.getText());
-		if (e.getSource() == nrbutt1)
-			isGrade(nr1.getText());
-		if (e.getSource() == lbutt1)
-			isGrade(l1.getText());
-		if (e.getSource() == ibutt1)
-			isGrade(i1.getText());
-		if (e.getSource() == nfbutt1)
-			isGrade(nf1.getText());
-		if (e.getSource() == cancel3)
-			this.dispose();
-		if (e.getSource() == create2)
-			Creating.createCourse();
-		
-		if (e.getSource() == schedbutt)
-			schedWind();
-		if (e.getSource() == fallbutt1)
-			isFall(true);
-		if (e.getSource() == springbutt1)
-			isFall(false);
-		if (e.getSource() == nonebutt1)
-			noLect();
-		if (e.getSource() == nonebutt2)
-			noConf();
-		if (e.getSource() == nonebutt3)
-			noLab();
-		if (e.getSource() == cancel4)
-			root4.dispose();
-		if (e.getSource() == finish2)
-			Creating.finishSched();
 	}
 
 	public void schedWind() {
@@ -319,7 +277,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		fallbutt1.setLocation(185, 115);
 		fallbutt1.setSize(15, 15);
-		fallbutt1.addActionListener(this);
+		fallbutt1.addActionListener(ctrl);
 		panel4.add(fallbutt1);
 
 		fall1.setLocation(190, 109);
@@ -329,7 +287,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 
 		springbutt1.setLocation(300, 115);
 		springbutt1.setSize(15, 15);
-		springbutt1.addActionListener(this);
+		springbutt1.addActionListener(ctrl);
 		panel4.add(springbutt1);
 
 		spring1.setLocation(305, 109);
@@ -360,7 +318,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		// Lecture Tab
 		nonebutt1.setLocation(19, 15);
 		nonebutt1.setSize(15, 15);
-		nonebutt1.addActionListener(this);
+		nonebutt1.addActionListener(ctrl);
 		lectpanel1.add(nonebutt1);
 
 		none1.setLocation(36, 9);
@@ -444,7 +402,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		// Conference Tab
 		nonebutt2.setLocation(19, 15);
 		nonebutt2.setSize(15, 15);
-		nonebutt2.addActionListener(this);
+		nonebutt2.addActionListener(ctrl);
 		confpanel1.add(nonebutt2);
 
 		none2.setLocation(36, 9);
@@ -528,7 +486,7 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		// Lab Tab
 		nonebutt3.setLocation(19, 15);
 		nonebutt3.setSize(15, 15);
-		nonebutt3.addActionListener(this);
+		nonebutt3.addActionListener(ctrl);
 		labpanel1.add(nonebutt3);
 
 		none3.setLocation(36, 9);
@@ -612,269 +570,31 @@ public class NewCourseUI extends NewCourseUIHeader implements ActionListener {
 		// Buttons at bottom of Window
 		cancel4.setLocation(558, 434);
 		cancel4.setSize(96, 25);
-		cancel4.addActionListener(this);
+		cancel4.addActionListener(ctrl);
 		panel4.add(cancel4);
 
 		finish2.setLocation(442, 434);
 		finish2.setSize(96, 25);
-		finish2.addActionListener(this);
+		finish2.addActionListener(ctrl);
 		panel4.add(finish2);
 
 		root4.setVisible(true);
 	}
 
-	public void noLab() {
-		if (nonebutt3.isSelected()) {
-			monbutt3.setEnabled(false);
-			mon3.setEnabled(false);
-			tuesbutt3.setEnabled(false);
-			tues3.setEnabled(false);
-			wedbutt3.setEnabled(false);
-			wed3.setEnabled(false);
-			thursbutt3.setEnabled(false);
-			thurs3.setEnabled(false);
-			fributt3.setEnabled(false);
-			fri3.setEnabled(false);
-			start3.setEnabled(false);
-			starttime3.setEnabled(false);
-			startam3.setEnabled(false);
-			end3.setEnabled(false);
-			endtime3.setEnabled(false);
-			endam3.setEnabled(false);
-		} else {
-			monbutt3.setEnabled(true);
-			mon3.setEnabled(true);
-			tuesbutt3.setEnabled(true);
-			tues3.setEnabled(true);
-			wedbutt3.setEnabled(true);
-			wed3.setEnabled(true);
-			thursbutt3.setEnabled(true);
-			thurs3.setEnabled(true);
-			fributt3.setEnabled(true);
-			fri3.setEnabled(true);
-			start3.setEnabled(true);
-			starttime3.setEnabled(true);
-			startam3.setEnabled(true);
-			end3.setEnabled(true);
-			endtime3.setEnabled(true);
-			endam3.setEnabled(true);
-		}
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
 	}
 
-	public void isEnroll(Boolean thing) {
-		if (thing) {
-			if (enbutt1.isSelected()) {
-				enbutt2.setSelected(false);
-				grade.setEnabled(true);
-				abutt1.setEnabled(true);
-				a1.setEnabled(true);
-				bbutt1.setEnabled(true);
-				b1.setEnabled(true);
-				cbutt1.setEnabled(true);
-				c1.setEnabled(true);
-				nrbutt1.setEnabled(true);
-				nr1.setEnabled(true);
-				lbutt1.setEnabled(true);
-				l1.setEnabled(true);
-				ibutt1.setEnabled(true);
-				i1.setEnabled(true);
-				nfbutt1.setEnabled(true);
-				nf1.setEnabled(true);
-			}
-		} else {
-			if (enbutt2.isSelected()) {
-				enbutt1.setSelected(false);
-				grade.setEnabled(false);
-				abutt1.setEnabled(false);
-				a1.setEnabled(false);
-				bbutt1.setEnabled(false);
-				b1.setEnabled(false);
-				cbutt1.setEnabled(false);
-				c1.setEnabled(false);
-				nrbutt1.setEnabled(false);
-				nr1.setEnabled(false);
-				lbutt1.setEnabled(false);
-				l1.setEnabled(false);
-				ibutt1.setEnabled(false);
-				i1.setEnabled(false);
-				nfbutt1.setEnabled(false);
-				nf1.setEnabled(false);
-			}
-		}
+	@Override
+	public void buildUI() {
+		// TODO Auto-generated method stub
+
 	}
 
-	public void isGrade(String grade) {
-		if (grade == a1.getText()) {
-			if (abutt1.isSelected()) {
-				bbutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == b1.getText()) {
-			if (bbutt1.isSelected()) {
-				abutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == c1.getText()) {
-			if (cbutt1.isSelected()) {
-				abutt1.setSelected(false);
-				bbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == nr1.getText()) {
-			if (nrbutt1.isSelected()) {
-				abutt1.setSelected(false);
-				bbutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == l1.getText()) {
-			if (lbutt1.isSelected()) {
-				abutt1.setSelected(false);
-				bbutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == i1.getText()) {
-			if (ibutt1.isSelected()) {
-				abutt1.setSelected(false);
-				bbutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				nfbutt1.setSelected(false);
-			}
-		}
-		if (grade == nf1.getText()) {
-			if (nfbutt1.isSelected()) {
-				abutt1.setSelected(false);
-				bbutt1.setSelected(false);
-				cbutt1.setSelected(false);
-				nrbutt1.setSelected(false);
-				lbutt1.setSelected(false);
-				ibutt1.setSelected(false);
-			}
-		}
-	}
-
-	public void isFall(Boolean thing) {
-		if (thing) {
-			if (fallbutt1.isSelected()) {
-				abutt2.setSelected(true);
-				bbutt2.setSelected(true);
-				cbutt2.setSelected(false);
-				dbutt2.setSelected(false);
-				springbutt1.setSelected(false);
-			} else {
-				abutt2.setSelected(false);
-				bbutt2.setSelected(false);
-			}
-		} else {
-			if (springbutt1.isSelected()) {
-				abutt2.setSelected(false);
-				bbutt2.setSelected(false);
-				cbutt2.setSelected(true);
-				dbutt2.setSelected(true);
-				fallbutt1.setSelected(false);
-			} else {
-				cbutt2.setSelected(false);
-				dbutt2.setSelected(false);
-			}
-		}
-	}
-
-	public void noLect() {
-		if (nonebutt1.isSelected()) {
-			monbutt1.setEnabled(false);
-			mon1.setEnabled(false);
-			tuesbutt1.setEnabled(false);
-			tues1.setEnabled(false);
-			wedbutt1.setEnabled(false);
-			wed1.setEnabled(false);
-			thursbutt1.setEnabled(false);
-			thurs1.setEnabled(false);
-			fributt1.setEnabled(false);
-			fri1.setEnabled(false);
-			start1.setEnabled(false);
-			starttime1.setEnabled(false);
-			startam1.setEnabled(false);
-			end1.setEnabled(false);
-			endtime1.setEnabled(false);
-			endam1.setEnabled(false);
-		} else {
-			monbutt1.setEnabled(true);
-			mon1.setEnabled(true);
-			tuesbutt1.setEnabled(true);
-			tues1.setEnabled(true);
-			wedbutt1.setEnabled(true);
-			wed1.setEnabled(true);
-			thursbutt1.setEnabled(true);
-			thurs1.setEnabled(true);
-			fributt1.setEnabled(true);
-			fri1.setEnabled(true);
-			start1.setEnabled(true);
-			starttime1.setEnabled(true);
-			startam1.setEnabled(true);
-			end1.setEnabled(true);
-			endtime1.setEnabled(true);
-			endam1.setEnabled(true);
-		}
-	}
-
-	public void noConf() {
-		if (nonebutt2.isSelected()) {
-			monbutt2.setEnabled(false);
-			mon2.setEnabled(false);
-			tuesbutt2.setEnabled(false);
-			tues2.setEnabled(false);
-			wedbutt2.setEnabled(false);
-			wed2.setEnabled(false);
-			thursbutt2.setEnabled(false);
-			thurs2.setEnabled(false);
-			fributt2.setEnabled(false);
-			fri2.setEnabled(false);
-			start2.setEnabled(false);
-			starttime2.setEnabled(false);
-			startam2.setEnabled(false);
-			end2.setEnabled(false);
-			endtime2.setEnabled(false);
-			endam2.setEnabled(false);
-		} else {
-			monbutt2.setEnabled(true);
-			mon2.setEnabled(true);
-			tuesbutt2.setEnabled(true);
-			tues2.setEnabled(true);
-			wedbutt2.setEnabled(true);
-			wed2.setEnabled(true);
-			thursbutt2.setEnabled(true);
-			thurs2.setEnabled(true);
-			fributt2.setEnabled(true);
-			fri2.setEnabled(true);
-			start2.setEnabled(true);
-			starttime2.setEnabled(true);
-			startam2.setEnabled(true);
-			end2.setEnabled(true);
-			endtime2.setEnabled(true);
-			endam2.setEnabled(true);
-		}
+	@Override
+	public JComponent getComponentByName(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

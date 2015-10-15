@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import control.MainUIController;
 import objects.Course;
 import objects.Prof;
 import objects.Require;
@@ -15,7 +16,7 @@ import degreeThings.*;
 
 public class Main {
 	/**
-	 * Written by Nicole Beinstein
+	 * Written by Nicole Beinstein and Jack Rivadeneira
 	 */
 
 	static ArrayList<File> profFiles = new ArrayList<File>();
@@ -46,7 +47,7 @@ public class Main {
 		getGrads();
 		getUndergrads();
 		getRequires();
-		new MainUI();
+		new MainUI(new MainUIController());
 	}
 	
 	static void addTree(File file, ArrayList<File> all){
