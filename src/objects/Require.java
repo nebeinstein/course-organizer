@@ -19,27 +19,29 @@ public class Require {
 	double GPA;
 	boolean met = false;
 
-	public Require(String Name, double Credits, String[] Reqcourses, String[] CourseFiles) {
+	public Require(String Name, double Credits, String[] Reqcourses,
+			String[] CourseFiles) {
 		name = Name;
 		creditsNeed = Credits;
 		reqcourses = Reqcourses;
 		courseFiles = CourseFiles;
 	}
 
-	public Course findCourse(String Name){
+	public Course findCourse(String Name) {
 		Course thatOne = null;
 		int i = 0;
-		while(i<Main.classes.length){
-			if(Main.classes[i].name.equals(Name)) thatOne = Main.classes[i];
+		while (i < Main.classes.length) {
+			if (Main.classes[i].name.equals(Name))
+				thatOne = Main.classes[i];
 			i++;
 		}
 		return thatOne;
 	}
-	
+
 	public void addCourses() {
 		courses = new Course[courseFiles.length];
 		int i = 0;
-		while(i<courseFiles.length){
+		while (i < courseFiles.length) {
 			courses[i] = findCourse(courseNames.get(i));
 			i++;
 		}
@@ -49,9 +51,10 @@ public class Require {
 		int i = 0;
 		double big = 0.000;
 		while (i < courses.length) {
-			if (courses[i].enrolled && courses[i].passed) {
+			if (courses[i].enrolled && courses[i].passed()) {
 				double add = 0;
-				creditsHave = creditsHave + Double.parseDouble(courses[i].credits);
+				creditsHave = creditsHave
+						+ Double.parseDouble(courses[i].credits);
 				if (courses[i].grade == "A")
 					add = 4.000;
 				if (courses[i].grade == "B")
@@ -69,5 +72,35 @@ public class Require {
 		if (creditsNeed == creditsHave) {
 			met = true;
 		}
+	}
+
+	public String toString() {
+		String s = "";
+		s += this.name;
+		s += ";" + this.creditsNeed;
+		s += ";" + this.creditsHave;
+		String combinedRequiredCourses = "";
+		for (String ss : this.reqcourses) {
+			combinedRequiredCourses += ss + ",";
+		}
+		s += ";" + combinedRequiredCourses;
+		String combinedCourseFiles = "";
+		for (String ss : this.courseFiles) {
+			combinedCourseFiles += ss + ",";
+		}
+		s += ";" + combinedCourseFiles;
+		String combinedCourseNames = "";
+		for (String ss : this.courseNames) {
+			combinedCourseNames += ss + ",";
+		}
+		s += ";" + combinedCourseNames;
+		String combinedCourses = "";
+		for (Course c : courses) {
+			combinedCourses += c.toString() + ",";
+		}
+		s += ";" + combinedCourses;
+		s += ";" + GPA;
+		s += ";" + met;
+		return s;
 	}
 }

@@ -259,9 +259,9 @@ public class MainUI extends MainUIHeader implements UI {
 			int f = 0;
 			while (f < data[i].length) {
 				Course current = currentreq.courses[f];
-				parts = current.dep.split(" - ");
-				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
-						current.name };
+//				parts = current.dep.split(" - ");
+//				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
+//						current.name };
 				f++;
 			}
 			i++;
