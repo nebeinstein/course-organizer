@@ -70,4 +70,34 @@ public class Require {
 			met = true;
 		}
 	}
+	
+	public String toString(){
+		String s = "";
+		s += this.name;
+		s += ";" + this.creditsNeed;
+		s += ";" + this.creditsHave;
+		String combinedRequiredCourses = "";
+		for(String ss:this.reqcourses){
+			combinedRequiredCourses += ss + ",";
+		}
+		s += ";" + combinedRequiredCourses;
+		String combinedCourseFiles = "";
+		for(String ss : this.courseFiles){
+			combinedCourseFiles += ss + ",";
+		}
+		s += ";" + combinedCourseFiles;
+		String combinedCourseNames = "";
+		for(String ss : this.courseNames){
+			combinedCourseNames += ss + ",";
+		}
+		s += ";" + combinedCourseNames;
+		String combinedCourses = "";
+		for(Course c : courses){
+			combinedCourses += c.toString() + ",";
+		}
+		s += ";" + combinedCourses;
+		s += ";" + GPA;
+		s += ";" + met;
+		return s;
+	}
 }

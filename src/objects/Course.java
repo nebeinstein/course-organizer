@@ -76,4 +76,9 @@ public class Course {
 			String endTime) {
 		schedSetup(labdays, days, startTime, endTime);
 	}
+
+	public String toString(){
+		
+		return null;
+	}
 }
