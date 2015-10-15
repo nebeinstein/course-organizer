@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import objects.Course;
-import objects.Prof;
+import objects.Professor;
 import objects.Require;
 import ui.MainUI;
 import degreeThings.*;
@@ -19,10 +19,10 @@ public class Main {
 	 */
 
 	static ArrayList<File> profFiles = new ArrayList<File>();
-	static Prof[] profs = {};
+	static Professor[] profs = {};
 	
 	static ArrayList<File> taFiles = new ArrayList<File>();
-	static Prof[] tas = {};
+	static Professor[] tas = {};
 	
 	static ArrayList<File> classFiles = new ArrayList<File>();
 	public static Course[] classes = {};
@@ -96,13 +96,13 @@ public class Main {
 	public static void getProfs(){
 		addTree(new File("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Professors"), profFiles);
 		
-		profs = new Prof[profFiles.size()];
+		profs = new Professor[profFiles.size()];
 		
 		String[][] info = getInfo(profFiles, "\\\\\\\\");
 		
 		int i = 0;
 		while (i<profFiles.size()){
-			profs[i] = new Prof(info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5]);
+			profs[i] = new Professor(info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5]);
 			profs[i].type = "Professor";
 			profs[i].picture(info[i][6]);
 			if (info[i].length == 12) {
@@ -116,13 +116,13 @@ public class Main {
 	public static void getTas(){
 		addTree(new File("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\TAs"), taFiles);
 		
-		tas = new Prof[taFiles.size()];
+		tas = new Professor[taFiles.size()];
 		
 		String[][] info = getInfo(taFiles, "\\\\\\\\");
 		
 		int i = 0;
 		while (i<taFiles.size()){
-			tas[i] = new Prof(info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5]);
+			tas[i] = new Professor(info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5]);
 			tas[i].type = "TA";
 			tas[i].picture(info[i][6]);
 			if (info[i].length == 12) {

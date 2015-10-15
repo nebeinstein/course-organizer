@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import objects.Course;
-import objects.Prof;
+import objects.Professor;
 import objects.Require;
 
 public class Archivist {
@@ -16,7 +16,7 @@ public class Archivist {
 	 * Interprets Jack's data to produce usable objects.
 	 */
 	ArrayList<String> lines;
-	public ArrayList<Prof> professors;
+	public ArrayList<Professor> professors;
 	public ArrayList<Course> courses;
 	public ArrayList<Require> require;
 	int location;
@@ -28,7 +28,7 @@ public class Archivist {
 	 */
 	public Archivist() {
 		this.lines = new ArrayList<String>();
-		this.professors = new ArrayList<Prof>();
+		this.professors = new ArrayList<Professor>();
 		this.location = 0;
 		this.loadFile(datafile);
 		this.interpret();
@@ -90,7 +90,7 @@ public class Archivist {
 			}
 			location++;
 		}
-		professors.add(new Prof(professorData));
+		professors.add(new Professor(professorData));
 		say(professors.get(professors.size()-1).toString());
 	}
 
@@ -127,6 +127,9 @@ public class Archivist {
 			ex.printStackTrace();
 		}
 		say("Save complete.");
+		if(type.equals("professor")){
+			professors.add((Professor)payload);
+		}
 	}
 
 	public static void main(String[] args) {
