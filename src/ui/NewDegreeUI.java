@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,15 +13,18 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import central.Creating;
+import control.Controller;
 
-public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
+public class NewDegreeUI extends NewDegreeUIHeader implements UI {
 
 	/**
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = 2568085091000360273L;
 
-	public NewDegreeUI() {
+	public NewDegreeUI(Controller ctrl) {
+		addController(ctrl);
+		ctrl.addUI(this);
 		setSize(400, 270);
 		setTitle("New Degree");
 		setResizable(false);
@@ -41,7 +45,7 @@ public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
 
 		degbutt1.setLocation(70, 85);
 		degbutt1.setSize(15, 15);
-		degbutt1.addActionListener(this);
+		degbutt1.addActionListener(ctrl);
 		panel5.add(degbutt1);
 
 		deglabe1.setLocation(90, 79);
@@ -51,7 +55,7 @@ public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
 
 		degbutt2.setLocation(210, 85);
 		degbutt2.setSize(15, 15);
-		degbutt2.addActionListener(this);
+		degbutt2.addActionListener(ctrl);
 		panel5.add(degbutt2);
 
 		deglabe2.setLocation(230, 79);
@@ -70,41 +74,32 @@ public class NewDegreeUI extends NewDegreeUIHeader implements ActionListener {
 
 		cancel5.setLocation(280, 207);
 		cancel5.setSize(96, 25);
-		cancel5.addActionListener(this);
+		cancel5.addActionListener(ctrl);
 		panel5.add(cancel5);
 
 		create3.setLocation(166, 207);
 		create3.setSize(96, 25);
-		create3.addActionListener(this);
+		create3.addActionListener(ctrl);
 		panel5.add(create3);
 
 		setVisible(true);
 	}
-	
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == degbutt1)
-			isGrad(false);
-		if (e.getSource() == degbutt2)
-			isGrad(true);
-		if (e.getSource() == cancel5)
-			this.dispose();
-		if (e.getSource() == create3)
-			Creating.createDegree();
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+		
 	}
 
-	public void isGrad(Boolean thing) {
-		if (thing) {
-			if (degbutt2.isSelected()) {
-				degbutt1.setSelected(false);
-				type1.setEnabled(false);
-				typebox1.setEnabled(false);
-			}
-		} else {
-			if (degbutt1.isSelected()) {
-				degbutt2.setSelected(false);
-				type1.setEnabled(true);
-				typebox1.setEnabled(true);
-			}
-		}
+	@Override
+	public void buildUI() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public JComponent getComponentByName(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

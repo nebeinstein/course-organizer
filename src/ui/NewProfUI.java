@@ -1,22 +1,22 @@
 package ui;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
-import central.Creating;
+import control.Controller;
 
-public class NewProfUI extends NewProfUIHeader implements ActionListener {
+public class NewProfUI extends NewProfUIHeader implements UI {
 
 	/**
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = -883814311856863910L;
 
-	public NewProfUI() {
+	public NewProfUI(Controller c) {
+		addController(c);
+		ctrl.addUI(this);
 		// Creating the window
 		setSize(500, 553);
 		setTitle("New Professor/TA");
@@ -84,7 +84,7 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
 		probutt1.setLocation(100, 284);
 		probutt1.setSize(15, 15);
-		probutt1.addActionListener(this);
+		probutt1.addActionListener(ctrl);
 		panel1.add(probutt1);
 
 		pro1.setLocation(109, 279);
@@ -94,7 +94,7 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
 		tabutt1.setLocation(215, 284);
 		tabutt1.setSize(15, 15);
-		tabutt1.addActionListener(this);
+		tabutt1.addActionListener(ctrl);
 		panel1.add(tabutt1);
 
 		Ta1.setLocation(209, 279);
@@ -113,75 +113,33 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
 		browse1.setLocation(369, 319);
 		browse1.setSize(96, 25);
-		browse1.addActionListener(this);
+		browse1.addActionListener(ctrl);
 		panel1.add(browse1);
 
 		cancel1.setLocation(380, 490);
 		cancel1.setSize(96, 25);
-		cancel1.addActionListener(this);
+		cancel1.addActionListener(ctrl);
 		panel1.add(cancel1);
 		
 		save2.setLocation(264,490);
 		save2.setSize(96,25);
-		save2.addActionListener(this);
+		save2.addActionListener(ctrl);
 		panel1.add(save2);
 
 		save1.setLocation(148, 490);
 		save1.setSize(96, 25);
-		save1.addActionListener(this);
+		save1.addActionListener(ctrl);
 		panel1.add(save1);
 
 		advance1.setLocation(26, 490);
 		advance1.setSize(96, 25);
-		advance1.addActionListener(this);
+		advance1.addActionListener(ctrl);
 		panel1.add(advance1);
 
 		setVisible(true);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == probutt1)
-			isProf(true);
-		if (e.getSource() == tabutt1)
-			isProf(false);
-		if (e.getSource() == cancel1)
-			this.dispose();
-		if (e.getSource() == save1){
-			Creating.createProf();
-			this.dispose();
-		}
-		if (e.getSource()==save2){
-			Creating.createProf();
-			this.dispose();
-			new NewProfUI();
-		}
-		if (e.getSource() == browse1)
-			findPhoto(photobox1);
-		if (e.getSource() == advance1)
-			advanceProf();
-		if (e.getSource() == cancel2)
-			root2.dispose();
-		if (e.getSource() == finish1){
-			Creating.finishAdvance();
-			root2.dispose();
-		}
-	}
-
-	public void findPhoto(JTextField box) {
-		String path = MainUI.browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Photos");
-		box.setText(path);
-	}
-
-	public void isProf(Boolean thing) {
-		if (thing) {
-			if (probutt1.isSelected())
-				tabutt1.setSelected(false);
-		} else {
-			if (tabutt1.isSelected())
-				probutt1.setSelected(false);
-		}
-	}
+	
 
 	public void advanceProf() {
 		root2.setSize(680, 500);
@@ -252,15 +210,33 @@ public class NewProfUI extends NewProfUIHeader implements ActionListener {
 
 		cancel2.setLocation(558, 434);
 		cancel2.setSize(96, 25);
-		cancel2.addActionListener(this);
+		cancel2.addActionListener(ctrl);
 		panel2.add(cancel2);
 
 		finish1.setLocation(442, 434);
 		finish1.setSize(96, 25);
-		finish1.addActionListener(this);
+		finish1.addActionListener(ctrl);
 		panel2.add(finish1);
 
 		root2.setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+		
+	}
+
+	@Override
+	public void buildUI() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public JComponent getComponentByName(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

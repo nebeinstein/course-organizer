@@ -8,22 +8,27 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import control.Controller;
+
 public class NewDegreeUIHeader extends JFrame {
 	/**
 	 * Written by Nicole Beinstein
 	 */
 	private static final long serialVersionUID = -3770564991288504650L;
+	//Controller
+	Controller ctrl;
+	
 	static String[] undegtypes = { "--- Select one ---", "WPI", "Major", "Minor" };
 	// For Degree Window
-	static JPanel panel5 = new JPanel();
-	static JLabel name3 = new JLabel("Name");
-	static JTextField namebox3 = new JTextField();
-	static JRadioButton degbutt1 = new JRadioButton();
-	static JLabel deglabe1 = new JLabel("Undergraduate");
-	static JRadioButton degbutt2 = new JRadioButton();
-	static JLabel deglabe2 = new JLabel("Graduate");
-	static JLabel type1 = new JLabel("Type");
-	static JComboBox<String> typebox1 = new JComboBox<String>(undegtypes);
-	JButton cancel5 = new JButton("Cancel");
-	JButton create3 = new JButton("Create");
+	JPanel panel5 = new JPanel();
+	public JLabel name3 = new JLabel("Name");
+	public JTextField namebox3 = new JTextField();
+	public JRadioButton degbutt1 = new JRadioButton();
+	public JLabel deglabe1 = new JLabel("Undergraduate");
+	public JRadioButton degbutt2 = new JRadioButton();
+	public JLabel deglabe2 = new JLabel("Graduate");
+	public JLabel type1 = new JLabel("Type");
+	public JComboBox<String> typebox1 = new JComboBox<String>(undegtypes);
+	public JButton cancel5 = new JButton("Cancel");
+	public JButton create3 = new JButton("Create");
 }
