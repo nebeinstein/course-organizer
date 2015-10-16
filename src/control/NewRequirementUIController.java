@@ -8,7 +8,6 @@ import central.Creating;
 import central.DummyClass;
 import degreeThings.Grad;
 import degreeThings.UnderGrad;
-import ui.MainUI;
 import ui.NewRequirementUI;
 import ui.UI;
 

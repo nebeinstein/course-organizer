@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JTextField;
-
 import central.Creating;
-import ui.MainUI;
 import ui.NewProfUI;
 import ui.UI;
 
@@ -31,8 +28,9 @@ public class NewProfUIController implements Controller {
 			// this.dispose();
 			// new NewProfUI();
 		}
-		if (e.getSource() == ui.browse1);
-			//findPhoto(ui.photobox1);
+		if (e.getSource() == ui.browse1)
+			;
+		// findPhoto(ui.photobox1);
 		if (e.getSource() == ui.advance1)
 			ui.advanceProf();
 		if (e.getSource() == ui.cancel2)
