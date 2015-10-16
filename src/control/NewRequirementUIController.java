@@ -21,8 +21,8 @@ public class NewRequirementUIController implements Controller {
 			isGradRequire(false);
 		if (e.getSource() == ui.degbutt4)
 			isGradRequire(true);
-		if (e.getSource() == ui.browse2)
-			MainUI.findCourses(ui.coursebox1);
+		if (e.getSource() == ui.browse2);
+//			MainUI.findCourses(ui.coursebox1);
 		if (e.getSource() == ui.cancel6)
 			ui.dispose();
 		if (e.getSource() == ui.create4)

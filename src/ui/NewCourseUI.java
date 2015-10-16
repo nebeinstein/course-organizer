@@ -20,12 +20,23 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 	public NewCourseUI(Controller c) {
 		addController(c);
 		ctrl.addUI(this);
-		// Main.getProfs();
-		// Main.getTas();
+		buildUI();
+		setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+	}
+
+	@Override
+	public void buildUI() {
+		// Creating the window
 		setSize(500, 553);
 		setTitle("New Course");
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		panel3.setSize(500, 553);
 		panel3.setLayout(null);
@@ -67,7 +78,7 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		probox2.setSize(224, 25);
 		probox2.removeAllItems();
 		probox2.addItem("--- Select One ---");
-		for (Professor p : DummyClass.profs){
+		for (Professor p : DummyClass.profs) {
 			probox2.addItem(p.name);
 		}
 		probox2.addItem("N/A");
@@ -82,7 +93,7 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		tabox2.setSize(224, 25);
 		tabox2.removeAllItems();
 		tabox2.addItem("--- Select One ---");
-		for (Professor p : DummyClass.tas){
+		for (Professor p : DummyClass.tas) {
 			tabox2.addItem(p.name);
 		}
 		tabox2.addItem("N/A");
@@ -211,8 +222,6 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		schedbutt.setSize(96, 25);
 		schedbutt.addActionListener(ctrl);
 		panel3.add(schedbutt);
-
-		setVisible(true);
 	}
 
 	public void schedWind() {
@@ -579,17 +588,6 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		panel4.add(finish2);
 
 		root4.setVisible(true);
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = c;
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

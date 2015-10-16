@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
@@ -32,11 +31,24 @@ public class MainUI extends MainUIHeader implements UI {
 	public MainUI(Controller c) {
 		addController(c);
 		ctrl.addUI(this);
+		buildUI();
+		setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+
+	}
+
+	@Override
+	public void buildUI() {
+		// Creating the window
 		setSize(800, 600);
 		setTitle("My WPI Organizer");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		bar.add(file);
 		bar.add(view);
@@ -83,31 +95,6 @@ public class MainUI extends MainUIHeader implements UI {
 		labelmain.setSize(800, 25);
 		labelmain.setHorizontalAlignment(JLabel.CENTER);
 		panelmain.add(labelmain);
-
-		setVisible(true);
-	}
-
-	public static String browseComp(String direct) {
-		String output = "";
-		// fc1.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		// fc1.setCurrentDirectory(new File(direct));
-		// int returnVal = fc1.showOpenDialog(MainUI.this);
-		// if(returnVal == JFileChooser.APPROVE_OPTION){
-		// File file = fc1.getSelectedFile();
-		// output = file.getPath();
-		// }
-		return output;
-	}
-
-	public static void findCourses(JTextArea box) {
-		System.out.println("Find courses!");
-		// String path =
-		// browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Courses");
-		// box.setText(box.getText() + path + "\n");
-	}
-
-	public void optWind() {
-		System.out.println("Option Window");
 	}
 
 	public void viewProfs() {
@@ -213,26 +200,30 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void viewCourses() {
-		// Main.getCourses();
 		panelmain.removeAll();
 		labelmain.setText("MY COURSES");
 		panelmain.add(labelmain);
 
-		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor", "TA", "Enrolled", "Grade" };
+		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor",
+				"TA", "Enrolled", "Grade" };
 		Object[][] data = new Object[Main.classes.length][8];
 
 		String[] parts = {};
 
 		int i = 0;
 		while (i < data.length) {
-//			parts = Main.classes[i].dep.split(" - ");
+			// parts = Main.classes[i].dep.split(" - ");
 
 			if (Main.classes[i].enrolled) {
-//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//						Main.classes[i].profname, Main.classes[i].taname, "Yes", Main.classes[i].grade };
+				// data[i] = new Object[] { Main.classes[i].credits,
+				// Main.classes[i].name, parts[0], Main.classes[i].num,
+				// Main.classes[i].profname, Main.classes[i].taname, "Yes",
+				// Main.classes[i].grade };
 			} else {
-//				data[i] = new Object[] { Main.classes[i].credits, Main.classes[i].name, parts[0], Main.classes[i].num,
-//						Main.classes[i].profname, Main.classes[i].taname, "No", Main.classes[i].grade };
+				// data[i] = new Object[] { Main.classes[i].credits,
+				// Main.classes[i].name, parts[0], Main.classes[i].num,
+				// Main.classes[i].profname, Main.classes[i].taname, "No",
+				// Main.classes[i].grade };
 			}
 			i++;
 		}
@@ -266,7 +257,8 @@ public class MainUI extends MainUIHeader implements UI {
 
 	public void viewDegree(Degree deg, JPanel panel) {
 
-		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept", "Num", "Class Name" };
+		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept",
+				"Num", "Class Name" };
 		Object[][][] data = new Object[deg.requirements.size()][][];
 		String[] parts = {};
 
@@ -277,9 +269,10 @@ public class MainUI extends MainUIHeader implements UI {
 			int f = 0;
 			while (f < data[i].length) {
 				Course current = currentreq.courses[f];
-//				parts = current.dep.split(" - ");
-//				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
-//						current.name };
+				// parts = current.dep.split(" - ");
+				// data[i][f] = new Object[] { current.credits, current.grade,
+				// "---", "---", parts[0], current.num,
+				// current.name };
 				f++;
 			}
 			i++;
@@ -290,7 +283,8 @@ public class MainUI extends MainUIHeader implements UI {
 
 		i = 0;
 		while (i < names.length) {
-			credits[i] = new JLabel(Double.toString(deg.requirements.get(i).creditsNeed));
+			credits[i] = new JLabel(
+					Double.toString(deg.requirements.get(i).creditsNeed));
 			credits[i].setSize(100, 25);
 			credits[i].setLocation(0, 0);
 			credits[i].setHorizontalAlignment(JLabel.CENTER);
@@ -413,7 +407,7 @@ public class MainUI extends MainUIHeader implements UI {
 		//
 		// panelmain.repaint();
 		//
-		/// *
+		// / *
 		// for (int i = 0; i < underbutts.length; i++){
 		// underbutts[i] = new JButton(Main.undergrads[i].name + " " +
 		// Main.undergrads[i].kind);
@@ -430,7 +424,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// String[][][] columnNames = new String[tabs.length][][];
 		// int i = 0;
 		// while(i<columnNames.length){
@@ -472,7 +466,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// JScrollPane[] panes = new JScrollPane[tabs.length];
 		// JPanel[] panels = new JPanel[tabs.length];
 		// JLabel[][] names = new JLabel[tabs.length][];
@@ -525,7 +519,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// classtable.setRowHeight(25);
 		// classtable.getColumnModel().getColumn(0).setMaxWidth(50);
 		// classtable.getColumnModel().getColumn(2).setMaxWidth(40);
@@ -547,23 +541,16 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void howToWind() {
-		System.out.println("How to Window");
+		javax.swing.JOptionPane.showMessageDialog(this,
+				"Click buttons and shit happens. Figure it out. It's not that hard. Idiot.", "How to Use", -1);
 	}
 
 	public void aboutWind() {
-		System.out.println("About Window");
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = c;
-
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-
+		javax.swing.JOptionPane
+				.showMessageDialog(
+						this,
+						"This application was written by Nicole Beinstein and Jack Rivadeneira.",
+						"About", -1);
 	}
 
 	@Override

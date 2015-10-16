@@ -13,16 +13,25 @@ public class NewRequirementUI extends NewRequirementUIHeader implements UI {
 	private static final long serialVersionUID = -3829339437239505334L;
 
 	public NewRequirementUI(Controller c) {
-		// Main.getGrads();
-		// Main.getUndergrads();
-		// Main.getCourses();
 		addController(c);
 		ctrl.addUI(this);
+		buildUI();
+		setVisible(true);
+	}
 
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+	}
+
+	@Override
+	public void buildUI() {
+		// Creating the window
 		setSize(500, 553);
 		setTitle("New Requirement");
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		panel6.setSize(500, 553);
 		panel6.setLayout(null);
@@ -114,20 +123,6 @@ public class NewRequirementUI extends NewRequirementUIHeader implements UI {
 		create4.setSize(96, 25);
 		create4.addActionListener(ctrl);
 		panel6.add(create4);
-
-		setVisible(true);
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = c;
-
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

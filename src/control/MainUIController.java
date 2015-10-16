@@ -9,6 +9,7 @@ import ui.NewCourseUI;
 import ui.NewDegreeUI;
 import ui.NewProfUI;
 import ui.NewRequirementUI;
+import ui.OptionUI;
 import ui.UI;
 
 public class MainUIController implements Controller {
@@ -27,7 +28,7 @@ public class MainUIController implements Controller {
 		if (e.getSource() == ui.require)
 			new NewRequirementUI(new NewRequirementUIController());
 		if (e.getSource() == ui.options)
-			ui.optWind();
+			new OptionUI(new OptionUIController());
 
 		if (e.getSource() == ui.myprofs)
 			ui.viewProfs();
