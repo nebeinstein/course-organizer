@@ -17,6 +17,18 @@ public class NewProfUI extends NewProfUIHeader implements UI {
 	public NewProfUI(Controller c) {
 		addController(c);
 		ctrl.addUI(this);
+		buildUI();
+		setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+
+	}
+
+	@Override
+	public void buildUI() {
 		// Creating the window
 		setSize(500, 553);
 		setTitle("New Professor/TA");
@@ -120,9 +132,9 @@ public class NewProfUI extends NewProfUIHeader implements UI {
 		cancel1.setSize(96, 25);
 		cancel1.addActionListener(ctrl);
 		panel1.add(cancel1);
-		
-		save2.setLocation(264,490);
-		save2.setSize(96,25);
+
+		save2.setLocation(264, 490);
+		save2.setSize(96, 25);
 		save2.addActionListener(ctrl);
 		panel1.add(save2);
 
@@ -135,11 +147,7 @@ public class NewProfUI extends NewProfUIHeader implements UI {
 		advance1.setSize(96, 25);
 		advance1.addActionListener(ctrl);
 		panel1.add(advance1);
-
-		setVisible(true);
 	}
-
-	
 
 	public void advanceProf() {
 		root2.setSize(680, 500);
@@ -219,18 +227,6 @@ public class NewProfUI extends NewProfUIHeader implements UI {
 		panel2.add(finish1);
 
 		root2.setVisible(true);
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = c;
-		
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

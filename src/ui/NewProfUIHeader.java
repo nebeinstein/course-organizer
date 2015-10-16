@@ -21,7 +21,7 @@ public class NewProfUIHeader extends JFrame {
 	Controller ctrl;
 	
 	// For prof window
-	static JPanel panel1 = new JPanel();
+	JPanel panel1 = new JPanel();
 	public JLabel name1 = new JLabel("Name");
 	public JTextField namebox1 = new JTextField();
 	public JLabel off1 = new JLabel("Office");

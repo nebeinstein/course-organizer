@@ -13,8 +13,6 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
-import objects.Course;
-import objects.Require;
 import control.Controller;
 import control.MainUIController;
 import degreeThings.Degree;
@@ -30,11 +28,24 @@ public class MainUI extends MainUIHeader implements UI {
 	public MainUI(Controller c) {
 		addController(c);
 		ctrl.addUI(this);
+		buildUI();
+		setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = (MainUIController) c;
+
+	}
+
+	@Override
+	public void buildUI() {
+		// Creating the window
 		setSize(800, 600);
 		setTitle("My WPI Organizer");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		bar.add(file);
 		bar.add(view);
@@ -81,12 +92,6 @@ public class MainUI extends MainUIHeader implements UI {
 		labelmain.setSize(800, 25);
 		labelmain.setHorizontalAlignment(JLabel.CENTER);
 		panelmain.add(labelmain);
-
-		setVisible(true);
-	}
-
-	public void optWind() {
-		System.out.println("Option Window");
 	}
 
 	public void viewProfs() {
@@ -197,7 +202,8 @@ public class MainUI extends MainUIHeader implements UI {
 		labelmain.setText("MY COURSES");
 		panelmain.add(labelmain);
 
-		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor", "TA", "Enrolled", "Grade" };
+		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor",
+				"TA", "Enrolled", "Grade" };
 
 		JTable classtable = new JTable(data, columnNames) {
 			private static final long serialVersionUID = -8052879652501507761L;
@@ -227,60 +233,63 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void viewDegree(Degree deg, JPanel panel) {
-		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept", "Num", "Class Name" };
-		Object[][][] data = new Object[deg.requirements.size()][][];
-		String[] parts = {};
-
-		int i = 0;
-		while (i < data.length) {
-			Require currentreq = deg.requirements.get(i);
-			data[i] = new Object[currentreq.courses.length][7];
-			int f = 0;
-			while (f < data[i].length) {
-				Course current = currentreq.courses[f];
-//				parts = current.dep.split(" - ");
-//				data[i][f] = new Object[] { current.credits, current.grade, "---", "---", parts[0], current.num,
-//						current.name };
-				f++;
-			}
-			i++;
-		}
-		JLabel[] names = new JLabel[deg.requirements.size()];
-		JLabel[] credits = new JLabel[deg.requirements.size()];
-		JTable[] tables = new JTable[deg.requirements.size()];
-
-		i = 0;
-		while (i < names.length) {
-			credits[i] = new JLabel(Double.toString(deg.requirements.get(i).creditsNeed));
-			credits[i].setSize(100, 25);
-			credits[i].setLocation(0, 0);
-			credits[i].setHorizontalAlignment(JLabel.CENTER);
-			panel.add(credits[i]);
-
-			names[i] = new JLabel(deg.requirements.get(i).name);
-			names[i].setSize(650, 25);
-			names[i].setLocation(100, 0);
-			names[i].setHorizontalAlignment(JLabel.CENTER);
-			panel.add(names[i]);
-
-			tables[i] = new JTable(data[i], columnNames) {
-				private static final long serialVersionUID = -8052879652501507761L;
-				DefaultTableCellRenderer renderCenter = new DefaultTableCellRenderer();
-
-				{// initializer block
-					renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
-				}
-
-				public TableCellRenderer getCellRenderer(int arg0, int arg1) {
-					return renderCenter;
-				}
-			};
-			tables[i].setRowHeight(25);
-			tables[i].setSize(750, 25 + 25 * tables[i].getRowCount());
-			tables[i].setLocation(0, 25);
-			panel.add(tables[i]);
-			i++;
-		}
+		System.out.println("View Degree!");
+//		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept",
+//				"Num", "Class Name" };
+//		Object[][][] data = new Object[deg.requirements.size()][][];
+//
+//		int i = 0;
+//		while (i < data.length) {
+//			Require currentreq = deg.requirements.get(i);
+//			data[i] = new Object[currentreq.courses.length][7];
+//			int f = 0;
+//			while (f < data[i].length) {
+//				Course current = currentreq.courses[f];
+//				// parts = current.dep.split(" - ");
+//				// data[i][f] = new Object[] { current.credits, current.grade,
+//				// "---", "---", parts[0], current.num,
+//				// current.name };
+//				f++;
+//			}
+//			i++;
+//		}
+//		JLabel[] names = new JLabel[deg.requirements.size()];
+//		JLabel[] credits = new JLabel[deg.requirements.size()];
+//		JTable[] tables = new JTable[deg.requirements.size()];
+//
+//		i = 0;
+//		while (i < names.length) {
+//			credits[i] = new JLabel(
+//					Double.toString(deg.requirements.get(i).creditsNeed));
+//			credits[i].setSize(100, 25);
+//			credits[i].setLocation(0, 0);
+//			credits[i].setHorizontalAlignment(JLabel.CENTER);
+//			panel.add(credits[i]);
+//
+//			names[i] = new JLabel(deg.requirements.get(i).name);
+//			names[i].setSize(650, 25);
+//			names[i].setLocation(100, 0);
+//			names[i].setHorizontalAlignment(JLabel.CENTER);
+//			panel.add(names[i]);
+//
+//			tables[i] = new JTable(data[i], columnNames) {
+//				private static final long serialVersionUID = -8052879652501507761L;
+//				DefaultTableCellRenderer renderCenter = new DefaultTableCellRenderer();
+//
+//				{// initializer block
+//					renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
+//				}
+//
+//				public TableCellRenderer getCellRenderer(int arg0, int arg1) {
+//					return renderCenter;
+//				}
+//			};
+//			tables[i].setRowHeight(25);
+//			tables[i].setSize(750, 25 + 25 * tables[i].getRowCount());
+//			tables[i].setLocation(0, 25);
+//			panel.add(tables[i]);
+//			i++;
+//		}
 	}
 
 	public void viewUndergrads() {
@@ -374,7 +383,7 @@ public class MainUI extends MainUIHeader implements UI {
 		//
 		// panelmain.repaint();
 		//
-		/// *
+		// / *
 		// for (int i = 0; i < underbutts.length; i++){
 		// underbutts[i] = new JButton(Main.undergrads[i].name + " " +
 		// Main.undergrads[i].kind);
@@ -391,7 +400,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// String[][][] columnNames = new String[tabs.length][][];
 		// int i = 0;
 		// while(i<columnNames.length){
@@ -433,7 +442,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// JScrollPane[] panes = new JScrollPane[tabs.length];
 		// JPanel[] panels = new JPanel[tabs.length];
 		// JLabel[][] names = new JLabel[tabs.length][];
@@ -486,7 +495,7 @@ public class MainUI extends MainUIHeader implements UI {
 		// }
 		// */
 		//
-		/// *
+		// / *
 		// classtable.setRowHeight(25);
 		// classtable.getColumnModel().getColumn(0).setMaxWidth(50);
 		// classtable.getColumnModel().getColumn(2).setMaxWidth(40);
@@ -508,23 +517,19 @@ public class MainUI extends MainUIHeader implements UI {
 	}
 
 	public void howToWind() {
-		System.out.println("How to Window");
+		javax.swing.JOptionPane
+				.showMessageDialog(
+						this,
+						"Click buttons and shit happens. Figure it out. It's not that hard. Idiot.",
+						"How to Use", -1);
 	}
 
 	public void aboutWind() {
-		System.out.println("About Window");
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = (MainUIController) c;
-
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-
+		javax.swing.JOptionPane
+				.showMessageDialog(
+						this,
+						"This application was written by Nicole Beinstein and Jack Rivadeneira.",
+						"About", -1);
 	}
 
 	@Override
