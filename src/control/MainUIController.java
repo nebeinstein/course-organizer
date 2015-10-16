@@ -51,23 +51,23 @@ public class MainUIController implements Controller {
 			ui.aboutWind();
 	}
 	
-	public String[][] getProfData(Professor[] start){
-		String[][] data = new String[start.length][6];
+	public String[][] getProfessorData(Professor[] start){
+		String[][] data = new String[start.length][5];
 		int i=0;
 		while (i<data.length){
 			Professor p = start[i];
-			data[i] = new String[] {p.name, p.title, p.email, p.office, p.phone, p.fax};
+			data[i] = new String[] {p.name, p.email, p.office, p.phone, p.fax};
 			i++;
 		}
 		return data;
 	}
 	
 	public String[][] getProfs() {
-		return getProfData(DummyClass.profs);
+		return getProfessorData(DummyClass.profs);
 	}
 	
 	public String[][] getTas(){
-		return getProfData(DummyClass.tas);
+		return getProfessorData(DummyClass.tas);
 	}
 
 	public String[][] getCourseData() {

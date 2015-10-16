@@ -84,128 +84,18 @@ public class MainUI extends MainUIHeader implements UI {
 		howto.addActionListener(ctrl);
 		about.addActionListener(ctrl);
 
-		panelmain.setSize(800, 600);
+		panelmain.setSize(this.getWidth(), this.getHeight());
 		panelmain.setLayout(null);
 		add(panelmain);
 
 		labelmain.setLocation(0, 0);
-		labelmain.setSize(800, 25);
+		labelmain.setSize(this.getWidth(), 25);
 		labelmain.setHorizontalAlignment(JLabel.CENTER);
 		panelmain.add(labelmain);
 	}
 
-	public void viewProfs() {
-		System.out.println("View Profs!!!");
-		// Main.getProfs();
-		// panelmain.removeAll();
-		// labelmain.setText("MY PROFESSORS");
-		// panelmain.add(labelmain);
-		// String[] columnNames =
-		// {"Name","Office","Phone","Fax","Email","Department"};
-		// String[][] data = new String[Main.profs.length][];
-		// int i = 0;
-		// while (i<data.length){
-		// data[i] = new String[] {Main.profs[i].name, Main.profs[i].office,
-		// Main.profs[i].phone, Main.profs[i].fax, Main.profs[i].email,
-		// Main.profs[i].dep};
-		// i++;
-		// }
-		// JTable proftable = new JTable(data, columnNames){
-		// private static final long serialVersionUID = -8052879652501507761L;
-		// DefaultTableCellRenderer renderCenter=new DefaultTableCellRenderer();
-		// {//initializer block
-		// renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
-		// }
-		// public TableCellRenderer getCellRenderer(int arg0, int arg1) {
-		// return renderCenter;
-		// }
-		// };
-		// proftable.setRowHeight(25);
-		//
-		// proftable.getColumnModel().getColumn(1).setMaxWidth(75);
-		// proftable.getColumnModel().getColumn(1).setPreferredWidth(75);
-		// proftable.getColumnModel().getColumn(1).setResizable(false);
-		//
-		// proftable.getColumnModel().getColumn(2).setMaxWidth(90);
-		// proftable.getColumnModel().getColumn(2).setPreferredWidth(90);
-		// proftable.getColumnModel().getColumn(2).setResizable(false);
-		//
-		// proftable.getColumnModel().getColumn(3).setMaxWidth(90);
-		// proftable.getColumnModel().getColumn(3).setPreferredWidth(90);
-		// proftable.getColumnModel().getColumn(3).setResizable(false);
-		//
-		// proftable.getColumnModel().getColumn(5).setPreferredWidth(120);
-		//
-		// proftable.setSize(750, 500);
-		// proftable.setLocation(0,0);
-		//
-		// JScrollPane profscroll = new JScrollPane(proftable);
-		// profscroll.setSize(750,500);
-		// profscroll.setLocation(20,25);
-		// panelmain.add(profscroll);
-	}
-
-	public void viewTas() {
-		System.out.println("View Tas!!!");
-		// Main.getTas();
-		// panelmain.removeAll();
-		// labelmain.setText("MY TAS");
-		// panelmain.add(labelmain);
-		//
-		// String[] columnNames =
-		// {"Name","Office","Phone","Fax","Email","Department"};
-		// String[][] data = new String[Main.tas.length][6];
-		// int i = 0;
-		// while (i<data.length){
-		// data[i] = new String[] {Main.tas[i].name, Main.tas[i].office,
-		// Main.tas[i].phone, Main.tas[i].fax, Main.tas[i].email,
-		// Main.tas[i].dep};
-		// i++;
-		// }
-		// JTable tatable = new JTable(data, columnNames){
-		// private static final long serialVersionUID = -8052879652501507761L;
-		// DefaultTableCellRenderer renderCenter=new DefaultTableCellRenderer();
-		// {//initializer block
-		// renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
-		// }
-		// public TableCellRenderer getCellRenderer(int arg0, int arg1) {
-		// return renderCenter;
-		// }
-		// };
-		// tatable.setRowHeight(25);
-		//
-		// tatable.getColumnModel().getColumn(1).setMaxWidth(75);
-		// tatable.getColumnModel().getColumn(1).setPreferredWidth(75);
-		// tatable.getColumnModel().getColumn(1).setResizable(false);
-		//
-		// tatable.getColumnModel().getColumn(2).setMaxWidth(90);
-		// tatable.getColumnModel().getColumn(2).setPreferredWidth(90);
-		// tatable.getColumnModel().getColumn(2).setResizable(false);
-		//
-		// tatable.getColumnModel().getColumn(3).setMaxWidth(90);
-		// tatable.getColumnModel().getColumn(3).setPreferredWidth(90);
-		// tatable.getColumnModel().getColumn(3).setResizable(false);
-		//
-		// tatable.getColumnModel().getColumn(5).setPreferredWidth(120);
-		// tatable.setSize(750, 500);
-		// tatable.setLocation(0,0);
-		//
-		// JScrollPane tascroll = new JScrollPane(tatable);
-		// tascroll.setSize(750,500);
-		// tascroll.setLocation(20,25);
-		// panelmain.add(tascroll);
-	}
-
-	public void viewCourses() {
-		String[][] data = ctrl.getCourseData();
-		panelmain.removeAll();
-		labelmain.setText("MY COURSES");
-		panelmain.add(labelmain);
-
-		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor",
-				"TA", "Enrolled", "Grade" };
-
-		JTable classtable = new JTable(data, columnNames) {
+	public JTable makeTable(String[][] data, String[] columnNames) {
+		JTable table = new JTable(data, columnNames) {
 			private static final long serialVersionUID = -8052879652501507761L;
 			DefaultTableCellRenderer renderCenter = new DefaultTableCellRenderer();
 
@@ -217,79 +107,124 @@ public class MainUI extends MainUIHeader implements UI {
 				return renderCenter;
 			}
 		};
+		return table;
+	}
+	
+	public void viewProfData(String labelText, String[][] data){
+		panelmain.removeAll();
+		labelmain.setText(labelText);
+		panelmain.add(labelmain);
+
+		String[] columnNames = { "Name", "Email", "Office", "Phone",
+				"Fax" };
+
+		JTable proftable = makeTable(data, columnNames);
+
+		proftable.setRowHeight(25);
+		proftable.setSize(this.getWidth()-50, this.getHeight()-100);
+		proftable.setLocation(0, 0);
+
+		JScrollPane profscroll = new JScrollPane(proftable);
+		profscroll.setSize(proftable.getWidth(), proftable.getHeight());
+		profscroll.setLocation(20, 25);
+		panelmain.add(profscroll);
+	}
+
+	public void viewProfs() {
+		String[][] data = ctrl.getProfs();
+		viewProfData("MY PROFESSORS", data);
+	}
+
+	public void viewTas() {
+		String[][] data = ctrl.getTas();
+		viewProfData("MY TAS", data);
+	}
+
+	public void viewCourses() {
+		String[][] data = ctrl.getCourseData();
+		panelmain.removeAll();
+		labelmain.setText("MY COURSES");
+		panelmain.add(labelmain);
+
+		String[] columnNames = { "Credits", "Name", "Dep", "Num", "Professor",
+				"TA", "Enrolled", "Grade" };
+
+		JTable classtable = makeTable(data, columnNames);
+
 		classtable.setRowHeight(25);
 		classtable.getColumnModel().getColumn(0).setMaxWidth(50);
 		classtable.getColumnModel().getColumn(2).setMaxWidth(40);
 		classtable.getColumnModel().getColumn(3).setMaxWidth(50);
 		classtable.getColumnModel().getColumn(6).setMaxWidth(60);
 		classtable.getColumnModel().getColumn(7).setMaxWidth(75);
-		classtable.setSize(750, 500);
+		classtable.setSize(this.getWidth()-50, this.getHeight()-100);
 		classtable.setLocation(0, 0);
 
 		JScrollPane classscroll = new JScrollPane(classtable);
-		classscroll.setSize(750, 500);
+		classscroll.setSize(classtable.getWidth(), classtable.getHeight());
 		classscroll.setLocation(20, 25);
 		panelmain.add(classscroll);
 	}
 
 	public void viewDegree(Degree deg, JPanel panel) {
 		System.out.println("View Degree!");
-//		String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept",
-//				"Num", "Class Name" };
-//		Object[][][] data = new Object[deg.requirements.size()][][];
-//
-//		int i = 0;
-//		while (i < data.length) {
-//			Require currentreq = deg.requirements.get(i);
-//			data[i] = new Object[currentreq.courses.length][7];
-//			int f = 0;
-//			while (f < data[i].length) {
-//				Course current = currentreq.courses[f];
-//				// parts = current.dep.split(" - ");
-//				// data[i][f] = new Object[] { current.credits, current.grade,
-//				// "---", "---", parts[0], current.num,
-//				// current.name };
-//				f++;
-//			}
-//			i++;
-//		}
-//		JLabel[] names = new JLabel[deg.requirements.size()];
-//		JLabel[] credits = new JLabel[deg.requirements.size()];
-//		JTable[] tables = new JTable[deg.requirements.size()];
-//
-//		i = 0;
-//		while (i < names.length) {
-//			credits[i] = new JLabel(
-//					Double.toString(deg.requirements.get(i).creditsNeed));
-//			credits[i].setSize(100, 25);
-//			credits[i].setLocation(0, 0);
-//			credits[i].setHorizontalAlignment(JLabel.CENTER);
-//			panel.add(credits[i]);
-//
-//			names[i] = new JLabel(deg.requirements.get(i).name);
-//			names[i].setSize(650, 25);
-//			names[i].setLocation(100, 0);
-//			names[i].setHorizontalAlignment(JLabel.CENTER);
-//			panel.add(names[i]);
-//
-//			tables[i] = new JTable(data[i], columnNames) {
-//				private static final long serialVersionUID = -8052879652501507761L;
-//				DefaultTableCellRenderer renderCenter = new DefaultTableCellRenderer();
-//
-//				{// initializer block
-//					renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
-//				}
-//
-//				public TableCellRenderer getCellRenderer(int arg0, int arg1) {
-//					return renderCenter;
-//				}
-//			};
-//			tables[i].setRowHeight(25);
-//			tables[i].setSize(750, 25 + 25 * tables[i].getRowCount());
-//			tables[i].setLocation(0, 25);
-//			panel.add(tables[i]);
-//			i++;
-//		}
+		// String[] columnNames = { "Credits", "Grade", "Year", "Sem", "Dept",
+		// "Num", "Class Name" };
+		// Object[][][] data = new Object[deg.requirements.size()][][];
+		//
+		// int i = 0;
+		// while (i < data.length) {
+		// Require currentreq = deg.requirements.get(i);
+		// data[i] = new Object[currentreq.courses.length][7];
+		// int f = 0;
+		// while (f < data[i].length) {
+		// Course current = currentreq.courses[f];
+		// // parts = current.dep.split(" - ");
+		// // data[i][f] = new Object[] { current.credits, current.grade,
+		// // "---", "---", parts[0], current.num,
+		// // current.name };
+		// f++;
+		// }
+		// i++;
+		// }
+		// JLabel[] names = new JLabel[deg.requirements.size()];
+		// JLabel[] credits = new JLabel[deg.requirements.size()];
+		// JTable[] tables = new JTable[deg.requirements.size()];
+		//
+		// i = 0;
+		// while (i < names.length) {
+		// credits[i] = new JLabel(
+		// Double.toString(deg.requirements.get(i).creditsNeed));
+		// credits[i].setSize(100, 25);
+		// credits[i].setLocation(0, 0);
+		// credits[i].setHorizontalAlignment(JLabel.CENTER);
+		// panel.add(credits[i]);
+		//
+		// names[i] = new JLabel(deg.requirements.get(i).name);
+		// names[i].setSize(650, 25);
+		// names[i].setLocation(100, 0);
+		// names[i].setHorizontalAlignment(JLabel.CENTER);
+		// panel.add(names[i]);
+		//
+		// tables[i] = new JTable(data[i], columnNames) {
+		// private static final long serialVersionUID = -8052879652501507761L;
+		// DefaultTableCellRenderer renderCenter = new
+		// DefaultTableCellRenderer();
+		//
+		// {// initializer block
+		// renderCenter.setHorizontalAlignment(SwingConstants.CENTER);
+		// }
+		//
+		// public TableCellRenderer getCellRenderer(int arg0, int arg1) {
+		// return renderCenter;
+		// }
+		// };
+		// tables[i].setRowHeight(25);
+		// tables[i].setSize(750, 25 + 25 * tables[i].getRowCount());
+		// tables[i].setLocation(0, 25);
+		// panel.add(tables[i]);
+		// i++;
+		// }
 	}
 
 	public void viewUndergrads() {
