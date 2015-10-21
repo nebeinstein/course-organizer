@@ -1,7 +1,6 @@
-package degreeThings;
+package objects;
 
 import java.util.ArrayList;
-import objects.Requirement;
 
 public class Degree {
 	/**
@@ -14,6 +13,10 @@ public class Degree {
 	String type;
 	ArrayList<String> typeOptions;
 
+	public Degree(){
+		typeOptions = new ArrayList<String>();
+	}
+	
 	public void addRequirement(Requirement newReq) {
 		requirements.add(newReq);
 	}

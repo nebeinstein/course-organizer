@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 import control.MainUIController;
 import objects.Course;
+import objects.Grad;
 import objects.Professor;
 import objects.Requirement;
+import objects.UnderGrad;
 import ui.MainUI;
 import degreeThings.*;
 

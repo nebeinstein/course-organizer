@@ -1,24 +1,26 @@
-package degreeThings;
+package objects;
 
-import objects.Requirement;
 
 public class UnderGrad extends Degree {
 	/**
 	 * Written by Nicole Beinstein
 	 */
 
-	String type;
 	public String kind;
 
 	public UnderGrad(String Name, String Kind) {
+		super();
+		typeOptions.add("BS");
+		typeOptions.add("BA");
 		level = "Undergraduate";
-		// typeOptions.add("BS");
-		// typeOptions.add("BA");
 		name = Name;
 		kind = Kind;
 	}
 
 	public UnderGrad(String Name, String Kind, Requirement[] reqs) {
+		super();
+		typeOptions.add("BS");
+		typeOptions.add("BA");
 		level = "Undergradate";
 		name = Name;
 		kind = Kind;

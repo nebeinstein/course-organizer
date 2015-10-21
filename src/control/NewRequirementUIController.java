@@ -4,10 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+import objects.Grad;
+import objects.UnderGrad;
 import central.Creating;
 import central.Main;
-import degreeThings.Grad;
-import degreeThings.UnderGrad;
 import ui.NewRequirementUI;
 import ui.UI;
 

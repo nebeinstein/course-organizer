@@ -1,4 +1,5 @@
-package degreeThings;
+package objects;
+
 
 public class Grad extends Degree {
 	/**
@@ -6,9 +7,10 @@ public class Grad extends Degree {
 	 */
 
 	public Grad(String Name) {
+		super();
+		typeOptions.add("MS");
+		typeOptions.add("MA");
 		level = "Graduate";
-		// typeOptions.add("MS");
-		// typeOptions.add("MA");
 		name = Name;
 	}
 }

@@ -5,8 +5,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import central.Main;
-import degreeThings.Degree;
 import objects.Course;
+import objects.Degree;
 import objects.Professor;
 import objects.Requirement;
 import ui.MainUI;

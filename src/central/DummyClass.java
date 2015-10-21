@@ -3,11 +3,11 @@ package central;
 import java.io.File;
 import java.util.ArrayList;
 
-import degreeThings.Grad;
-import degreeThings.UnderGrad;
 import objects.Course;
+import objects.Grad;
 import objects.Professor;
 import objects.Requirement;
+import objects.UnderGrad;
 
 public class DummyClass {
 	public static File f;

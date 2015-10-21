@@ -14,10 +14,10 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
+import objects.Degree;
 import central.Main;
 import control.Controller;
 import control.MainUIController;
-import degreeThings.Degree;
 
 public class MainUI extends MainUIHeader implements UI {
 	/**
