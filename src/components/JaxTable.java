@@ -46,6 +46,8 @@ public class JaxTable extends Panel implements MouseListener,
 		this.cols = Cols;
 		this.data = new Cell[rows][cols];
 		this.initilizeData();
+
+		this.setColumnNames("one two three four five six seven eight".split(" "));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		this.addKeyListener(this);
@@ -56,11 +58,18 @@ public class JaxTable extends Panel implements MouseListener,
 	// Color Background, Color Border, Color Text,
 	// Color SelectedBackground, Color SelectedBorder, Color SelectedText,
 	// Font CellFont
+	
+	public void setColumnNames(String[] columnNames){
+		int i = 0;
+		for(String s : columnNames){
+			this.setValueAt(0, i++, s);
+		}
+	}
 
 	private void initilizeData() {
 		int i = 0;
 		while (i < rows * cols)
-			data[i / cols][i % cols] = new Cell("hiya", (i % cols)
+			data[i / cols][i % cols] = new Cell("", (i % cols)
 					* this.cwidth, (i++ / cols) * this.cheight, this.cwidth,
 					this.cheight, this.cellColor, this.cellBorderColor,
 					this.fontColor, this.selectedCellBackground,
