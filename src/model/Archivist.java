@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import objects.Course;
 import objects.Professor;
-import objects.Require;
+import objects.Requirement;
 
 public class Archivist {
 	/**
@@ -18,7 +18,7 @@ public class Archivist {
 	ArrayList<String> lines;
 	public static ArrayList<Professor> professors;
 	public static ArrayList<Course> courses;
-	public static ArrayList<Require> require;
+	public static ArrayList<Requirement> require;
 	int location;
 	private boolean verboseOutputEnabled = true;
 	private final String datafile = "data";

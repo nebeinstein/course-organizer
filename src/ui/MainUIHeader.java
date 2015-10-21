@@ -17,7 +17,7 @@ public class MainUIHeader extends JFrame {
 	private static final long serialVersionUID = 6719521816566213537L;
 	// Controller
 	MainUIController ctrl;
-	
+
 	// Lists
 	static String[] deps = { "--- Select one ---", " - Accounting",
 			"AE - Aerospace Engineering", " - Air Science", " - Arabic",
@@ -72,15 +72,6 @@ public class MainUIHeader extends JFrame {
 	JLabel labelmain = new JLabel();
 
 	// For viewing degrees
-	JPanel bigpanel1 = new JPanel();
-	JPanel bigpanel2 = new JPanel();
-	JPanel bigpanel3 = new JPanel();
-	JPanel bigpanel4 = new JPanel();
-	JPanel bigpanel5 = new JPanel();
-
-	JScrollPane bigscroll1;
-	JScrollPane bigscroll2;
-	JScrollPane bigscroll3;
-	JScrollPane bigscroll4;
-	JScrollPane bigscroll5;
+	JPanel[] bigpanels = new JPanel[8];
+	JScrollPane[] bigscrolls = new JScrollPane[8];
 }

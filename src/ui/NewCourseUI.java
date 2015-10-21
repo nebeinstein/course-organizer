@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import central.DummyClass;
+import central.Main;
 import control.Controller;
 import objects.Professor;
 
@@ -78,7 +78,7 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		probox2.setSize(224, 25);
 		probox2.removeAllItems();
 		probox2.addItem("--- Select One ---");
-		for (Professor p : DummyClass.profs) {
+		for (Professor p : Main.DUMDUM.profs) {
 			probox2.addItem(p.name);
 		}
 		probox2.addItem("N/A");
@@ -93,7 +93,7 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		tabox2.setSize(224, 25);
 		tabox2.removeAllItems();
 		tabox2.addItem("--- Select One ---");
-		for (Professor p : DummyClass.tas) {
+		for (Professor p : Main.DUMDUM.tas) {
 			tabox2.addItem(p.name);
 		}
 		tabox2.addItem("N/A");
