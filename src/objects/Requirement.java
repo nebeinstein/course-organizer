@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import central.Main;
 
-public class Require {
+public class Requirement {
 	/**
 	 * Written by Nicole Beinstein
 	 */
@@ -19,7 +19,19 @@ public class Require {
 	double GPA;
 	boolean met = false;
 
-	public Require(String Name, double Credits, String[] Reqcourses,
+	/**
+	 * This is a dummy constructor that is being put in for now until the rest
+	 * of the class can be redone.
+	 * 
+	 * @param Name
+	 * @param Credits
+	 */
+	public Requirement(String Name, double Credits) {
+		name = Name;
+		creditsNeed = Credits;
+	}
+
+	public Requirement(String Name, double Credits, String[] Reqcourses,
 			String[] CourseFiles) {
 		name = Name;
 		creditsNeed = Credits;

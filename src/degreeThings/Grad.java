@@ -7,8 +7,8 @@ public class Grad extends Degree {
 
 	public Grad(String Name) {
 		level = "Graduate";
-		typeOptions.add("MS");
-		typeOptions.add("MA");
+		// typeOptions.add("MS");
+		// typeOptions.add("MA");
 		name = Name;
 	}
 }

@@ -9,16 +9,16 @@ import java.util.Scanner;
 
 import objects.Course;
 import objects.Professor;
-import objects.Require;
+import objects.Requirement;
 
 public class Archivist {
 	/**
 	 * Interprets Jack's data to produce usable objects.
 	 */
 	ArrayList<String> lines;
-	public ArrayList<Professor> professors;
-	public ArrayList<Course> courses;
-	public ArrayList<Require> require;
+	public static ArrayList<Professor> professors;
+	public static ArrayList<Course> courses;
+	public static ArrayList<Requirement> require;
 	int location;
 	private boolean verboseOutputEnabled = true;
 	private final String datafile = "data";

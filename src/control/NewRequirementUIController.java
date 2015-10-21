@@ -5,10 +5,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import central.Creating;
-import central.DummyClass;
+import central.Main;
 import degreeThings.Grad;
 import degreeThings.UnderGrad;
-import ui.MainUI;
 import ui.NewRequirementUI;
 import ui.UI;
 
@@ -22,7 +21,8 @@ public class NewRequirementUIController implements Controller {
 		if (e.getSource() == ui.degbutt4)
 			isGradRequire(true);
 		if (e.getSource() == ui.browse2)
-			MainUI.findCourses(ui.coursebox1);
+			;
+		// MainUI.findCourses(ui.coursebox1);
 		if (e.getSource() == ui.cancel6)
 			ui.dispose();
 		if (e.getSource() == ui.create4)
@@ -36,7 +36,7 @@ public class NewRequirementUIController implements Controller {
 				ui.degbutt3.setSelected(false);
 				ui.degbox1.setEnabled(true);
 				ui.degbox1.removeAllItems();
-				for (Grad g : DummyClass.grads) {
+				for (Grad g : Main.DUMDUM.grads) {
 					ui.degbox1.addItem(g.name);
 				}
 			} else {
@@ -48,7 +48,7 @@ public class NewRequirementUIController implements Controller {
 				ui.degbutt4.setSelected(false);
 				ui.degbox1.setEnabled(true);
 				ui.degbox1.removeAllItems();
-				for (UnderGrad g : DummyClass.undergrads) {
+				for (UnderGrad g : Main.DUMDUM.undergrads) {
 					ui.degbox1.addItem(g.name);
 				}
 			} else {

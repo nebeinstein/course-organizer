@@ -1,18 +1,8 @@
 package ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
-import central.Creating;
 import control.Controller;
 
 public class NewDegreeUI extends NewDegreeUIHeader implements UI {
@@ -22,13 +12,27 @@ public class NewDegreeUI extends NewDegreeUIHeader implements UI {
 	 */
 	private static final long serialVersionUID = 2568085091000360273L;
 
-	public NewDegreeUI(Controller ctrl) {
-		addController(ctrl);
+	public NewDegreeUI(Controller c) {
+		addController(c);
 		ctrl.addUI(this);
+		buildUI();
+		setVisible(true);
+	}
+
+	@Override
+	public void addController(Controller c) {
+		this.ctrl = c;
+
+	}
+
+	@Override
+	public void buildUI() {
+		// Creating the window
 		setSize(400, 270);
 		setTitle("New Degree");
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		panel5.setSize(400, 270);
 		panel5.setLayout(null);
@@ -81,20 +85,6 @@ public class NewDegreeUI extends NewDegreeUIHeader implements UI {
 		create3.setSize(96, 25);
 		create3.addActionListener(ctrl);
 		panel5.add(create3);
-
-		setVisible(true);
-	}
-
-	@Override
-	public void addController(Controller c) {
-		this.ctrl = c;
-		
-	}
-
-	@Override
-	public void buildUI() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

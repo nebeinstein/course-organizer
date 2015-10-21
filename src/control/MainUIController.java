@@ -4,11 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+import central.Main;
+import degreeThings.Degree;
+import objects.Course;
+import objects.Professor;
+import objects.Requirement;
 import ui.MainUI;
 import ui.NewCourseUI;
 import ui.NewDegreeUI;
 import ui.NewProfUI;
 import ui.NewRequirementUI;
+import ui.OptionUI;
 import ui.UI;
 
 public class MainUIController implements Controller {
@@ -27,7 +33,7 @@ public class MainUIController implements Controller {
 		if (e.getSource() == ui.require)
 			new NewRequirementUI(new NewRequirementUIController());
 		if (e.getSource() == ui.options)
-			ui.optWind();
+			new OptionUI(new OptionUIController());
 
 		if (e.getSource() == ui.myprofs)
 			ui.viewProfs();
@@ -44,15 +50,71 @@ public class MainUIController implements Controller {
 			ui.howToWind();
 		if (e.getSource() == ui.about)
 			ui.aboutWind();
+	}
 
-		/*
-		 * if (Arrays.asList(underbutts).contains(e.getSource()))
-		 * viewDegree(underbutts,
-		 * Arrays.asList(underbutts).indexOf(e.getSource()), true); if
-		 * (Arrays.asList(gradbutts).contains(e.getSource()))
-		 * viewDegree(gradbutts,
-		 * Arrays.asList(gradbutts).indexOf(e.getSource()), false);
-		 */
+	public String[][] getProfessorData(Professor[] start) {
+		String[][] data = new String[start.length][5];
+		int i = 0;
+		while (i < data.length) {
+			Professor p = start[i];
+			data[i] = new String[] { p.name, p.email, p.office, p.phone, p.fax };
+			i++;
+		}
+		return data;
+	}
+
+	public String[][] getProfs() {
+		return getProfessorData(Main.DUMDUM.profs);
+	}
+
+	public String[][] getTas() {
+		return getProfessorData(Main.DUMDUM.tas);
+	}
+
+	public String[][] getCourseData(Course[] start) {
+		String[][] data = new String[start.length][8];
+		int i = 0;
+		while (i < data.length) {
+			Course c = start[i];
+			String enrolled = "No";
+			if (c.enrolled)
+				enrolled = "Yes";
+			data[i] = new String[] { c.credits, c.getCourseName(),
+					c.getDepartment(), c.getCourseNumber(), c.profname,
+					c.taname, enrolled, "N/A" };
+			i++;
+		}
+		return data;
+	}
+
+	public String[][][] getDegreeData(Degree deg) {
+		String[][][] data = new String[deg.requirements.size()][][];
+		int i = 0;
+		while (i < data.length) {
+			Requirement currentreq = deg.requirements.get(i);
+			data[i] = getCourseData(currentreq.courses);
+			i++;
+		}
+		return data;
+	}
+
+	public String[][] getDegrees(Degree[] start) {
+		String[][] data = new String[start.length][1];
+		int i = 0;
+		while (i < data.length) {
+			Degree d = start[i];
+			data[i] = new String[] { d.name };
+			i++;
+		}
+		return data;
+	}
+
+	public String[][] getGrads() {
+		return getDegrees(Main.DUMDUM.grads);
+	}
+
+	public String[][] getUndergrads() {
+		return getDegrees(Main.DUMDUM.undergrads);
 	}
 
 	@Override

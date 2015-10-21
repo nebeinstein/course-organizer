@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JTextField;
-
 import central.Creating;
-import ui.MainUI;
 import ui.NewProfUI;
 import ui.UI;
 
@@ -32,7 +29,8 @@ public class NewProfUIController implements Controller {
 			// new NewProfUI();
 		}
 		if (e.getSource() == ui.browse1)
-			findPhoto(ui.photobox1);
+			;
+		// findPhoto(ui.photobox1);
 		if (e.getSource() == ui.advance1)
 			ui.advanceProf();
 		if (e.getSource() == ui.cancel2)
@@ -41,11 +39,6 @@ public class NewProfUIController implements Controller {
 			Creating.finishAdvance();
 			ui.root2.dispose();
 		}
-	}
-
-	public void findPhoto(JTextField box) {
-		String path = MainUI.browseComp("C:\\Users\\Nicole\\Desktop\\Coding\\Java\\Organizer\\Data\\Photos");
-		box.setText(path);
 	}
 
 	public void isProf(Boolean thing) {
