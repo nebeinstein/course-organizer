@@ -37,7 +37,6 @@ public class MainUI extends MainUIHeader implements UI {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 		setLocationRelativeTo(null);
-
 		bar.add(file);
 		bar.add(view);
 		bar.add(help);
