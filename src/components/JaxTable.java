@@ -33,7 +33,7 @@ public class JaxTable extends Panel implements MouseListener,
 	private Color cellBorderColor = Color.GREEN;
 	private Color cellColor = Color.BLACK;
 
-	private Color mouseOver = new Color(0, 100, 0);
+//	private Color mouseOver = new Color(0, 100, 0);
 
 	private Color selectedCellBackground = Color.GREEN;
 	private Color selectedBorderColor = Color.GREEN;

@@ -48,6 +48,10 @@ public class Cell {
 		this.mouseoverBorder = this.border;
 		this.mouseoverText = this.text;
 	}
+	
+	public Font getCellFont(){
+		return this.cellFont;
+	}
 
 	public int getX() {
 		return this.x;
