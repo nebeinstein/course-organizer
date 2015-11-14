@@ -14,7 +14,6 @@ import objects.Professor;
 import objects.Requirement;
 import objects.UnderGrad;
 import ui.MainUI;
-import degreeThings.*;
 
 public class Main {
 	/**

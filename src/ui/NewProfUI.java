@@ -36,197 +36,197 @@ public class NewProfUI extends NewProfUIHeader implements UI {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-		panel1.setSize(500, 553);
-		panel1.setLayout(null);
-		add(panel1, BorderLayout.CENTER);
+		profPanel.setSize(500, 553);
+		profPanel.setLayout(null);
+		add(profPanel, BorderLayout.CENTER);
 
-		name1.setLocation(39, 39);
-		name1.setSize(96, 25);
-		name1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(name1);
+		nameLabel.setLocation(39, 39);
+		nameLabel.setSize(96, 25);
+		nameLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(nameLabel);
 
-		namebox1.setLocation(145, 39);
-		namebox1.setSize(224, 25);
-		panel1.add(namebox1);
+		nameBox.setLocation(145, 39);
+		nameBox.setSize(224, 25);
+		profPanel.add(nameBox);
 
-		off1.setLocation(39, 79);
-		off1.setSize(96, 25);
-		off1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(off1);
+		officeLabel.setLocation(39, 79);
+		officeLabel.setSize(96, 25);
+		officeLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(officeLabel);
 
-		offbox1.setLocation(145, 79);
-		offbox1.setSize(224, 25);
-		panel1.add(offbox1);
+		officeBox.setLocation(145, 79);
+		officeBox.setSize(224, 25);
+		profPanel.add(officeBox);
 
-		phone1.setLocation(39, 119);
-		phone1.setSize(96, 25);
-		phone1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(phone1);
+		phoneLabel.setLocation(39, 119);
+		phoneLabel.setSize(96, 25);
+		phoneLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(phoneLabel);
 
-		phonebox1.setLocation(145, 119);
-		phonebox1.setSize(224, 25);
-		panel1.add(phonebox1);
+		phoneBox.setLocation(145, 119);
+		phoneBox.setSize(224, 25);
+		profPanel.add(phoneBox);
 
-		fax1.setLocation(39, 159);
-		fax1.setSize(96, 25);
-		fax1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(fax1);
+		faxLabel.setLocation(39, 159);
+		faxLabel.setSize(96, 25);
+		faxLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(faxLabel);
 
-		faxbox1.setLocation(145, 159);
-		faxbox1.setSize(224, 25);
-		panel1.add(faxbox1);
+		faxBox.setLocation(145, 159);
+		faxBox.setSize(224, 25);
+		profPanel.add(faxBox);
 
-		email1.setLocation(39, 199);
-		email1.setSize(96, 25);
-		email1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(email1);
+		emailLabel.setLocation(39, 199);
+		emailLabel.setSize(96, 25);
+		emailLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(emailLabel);
 
-		emailbox1.setLocation(145, 199);
-		emailbox1.setSize(224, 25);
-		panel1.add(emailbox1);
+		emailBox.setLocation(145, 199);
+		emailBox.setSize(224, 25);
+		profPanel.add(emailBox);
 
-		dep1.setLocation(39, 239);
-		dep1.setSize(96, 25);
-		dep1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(dep1);
+		departmentLabel.setLocation(39, 239);
+		departmentLabel.setSize(96, 25);
+		departmentLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(departmentLabel);
 
-		depbox1.setLocation(145, 239);
-		depbox1.setSize(224, 25);
-		panel1.add(depbox1);
+		departmentBox.setLocation(145, 239);
+		departmentBox.setSize(224, 25);
+		profPanel.add(departmentBox);
 
-		probutt1.setLocation(100, 284);
-		probutt1.setSize(15, 15);
-		probutt1.addActionListener(ctrl);
-		panel1.add(probutt1);
+		profButton.setLocation(100, 284);
+		profButton.setSize(15, 15);
+		profButton.addActionListener(ctrl);
+		profPanel.add(profButton);
 
-		pro1.setLocation(109, 279);
-		pro1.setSize(96, 25);
-		pro1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(pro1);
+		profLabel.setLocation(109, 279);
+		profLabel.setSize(96, 25);
+		profLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(profLabel);
 
-		tabutt1.setLocation(215, 284);
-		tabutt1.setSize(15, 15);
-		tabutt1.addActionListener(ctrl);
-		panel1.add(tabutt1);
+		taButton.setLocation(215, 284);
+		taButton.setSize(15, 15);
+		taButton.addActionListener(ctrl);
+		profPanel.add(taButton);
 
-		Ta1.setLocation(209, 279);
-		Ta1.setSize(96, 25);
-		Ta1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(Ta1);
+		taLabel.setLocation(209, 279);
+		taLabel.setSize(96, 25);
+		taLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(taLabel);
 
-		photo1.setLocation(39, 319);
-		photo1.setSize(96, 25);
-		photo1.setHorizontalAlignment(JLabel.CENTER);
-		panel1.add(photo1);
+		photoLabel.setLocation(39, 319);
+		photoLabel.setSize(96, 25);
+		photoLabel.setHorizontalAlignment(JLabel.CENTER);
+		profPanel.add(photoLabel);
 
-		photobox1.setLocation(145, 319);
-		photobox1.setSize(224, 25);
-		panel1.add(photobox1);
+		photoBox.setLocation(145, 319);
+		photoBox.setSize(224, 25);
+		profPanel.add(photoBox);
 
-		browse1.setLocation(369, 319);
-		browse1.setSize(96, 25);
-		browse1.addActionListener(ctrl);
-		panel1.add(browse1);
+		browseButton.setLocation(369, 319);
+		browseButton.setSize(96, 25);
+		browseButton.addActionListener(ctrl);
+		profPanel.add(browseButton);
 
-		cancel1.setLocation(380, 490);
-		cancel1.setSize(96, 25);
-		cancel1.addActionListener(ctrl);
-		panel1.add(cancel1);
+		cancelButton.setLocation(380, 490);
+		cancelButton.setSize(96, 25);
+		cancelButton.addActionListener(ctrl);
+		profPanel.add(cancelButton);
 
-		save2.setLocation(264, 490);
-		save2.setSize(96, 25);
-		save2.addActionListener(ctrl);
-		panel1.add(save2);
+		saveButton2.setLocation(264, 490);
+		saveButton2.setSize(96, 25);
+		saveButton2.addActionListener(ctrl);
+		profPanel.add(saveButton2);
 
-		save1.setLocation(148, 490);
-		save1.setSize(96, 25);
-		save1.addActionListener(ctrl);
-		panel1.add(save1);
+		saveButton1.setLocation(148, 490);
+		saveButton1.setSize(96, 25);
+		saveButton1.addActionListener(ctrl);
+		profPanel.add(saveButton1);
 
-		advance1.setLocation(26, 490);
-		advance1.setSize(96, 25);
-		advance1.addActionListener(ctrl);
-		panel1.add(advance1);
+		advancedButton.setLocation(26, 490);
+		advancedButton.setSize(96, 25);
+		advancedButton.addActionListener(ctrl);
+		profPanel.add(advancedButton);
 	}
 
 	public void advanceProf() {
-		root2.setSize(680, 500);
-		root2.setTitle("Professor Advanced");
-		root2.setResizable(false);
-		root2.setLocationRelativeTo(null);
+		advancedFrame.setSize(680, 500);
+		advancedFrame.setTitle("Professor Advanced");
+		advancedFrame.setResizable(false);
+		advancedFrame.setLocationRelativeTo(null);
 
-		panel2.setSize(680, 500);
-		panel2.setLayout(null);
-		root2.add(panel2, BorderLayout.CENTER);
+		advancedPanel.setSize(680, 500);
+		advancedPanel.setLayout(null);
+		advancedFrame.add(advancedPanel, BorderLayout.CENTER);
 
-		title1.setLocation(79, 39);
-		title1.setSize(96, 25);
-		title1.setHorizontalAlignment(JLabel.CENTER);
-		panel2.add(title1);
+		titleLabel.setLocation(79, 39);
+		titleLabel.setSize(96, 25);
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		advancedPanel.add(titleLabel);
 
-		titlebox1.setLocation(185, 39);
-		titlebox1.setSize(360, 25);
-		panel2.add(titlebox1);
+		titleBox.setLocation(185, 39);
+		titleBox.setSize(360, 25);
+		advancedPanel.add(titleBox);
 
-		desc1.setLocation(79, 79);
-		desc1.setSize(96, 100);
-		desc1.setHorizontalAlignment(JLabel.CENTER);
-		panel2.add(desc1);
+		descriptionLabel.setLocation(79, 79);
+		descriptionLabel.setSize(96, 100);
+		descriptionLabel.setHorizontalAlignment(JLabel.CENTER);
+		advancedPanel.add(descriptionLabel);
 
-		descbox1.setLocation(0, 0);
-		descbox1.setSize(345, 100);
+		descriptionBox.setLocation(0, 0);
+		descriptionBox.setSize(345, 100);
 
-		descscrollpane.setLocation(185, 79);
-		descscrollpane.setSize(360, 100);
-		panel2.add(descscrollpane);
+		descriptionScrollPane.setLocation(185, 79);
+		descriptionScrollPane.setSize(360, 100);
+		advancedPanel.add(descriptionScrollPane);
 
-		edu1.setLocation(79, 194);
-		edu1.setSize(96, 50);
-		edu1.setHorizontalAlignment(JLabel.CENTER);
-		panel2.add(edu1);
+		educationLabel.setLocation(79, 194);
+		educationLabel.setSize(96, 50);
+		educationLabel.setHorizontalAlignment(JLabel.CENTER);
+		advancedPanel.add(educationLabel);
 
-		edubox1.setLocation(0, 0);
-		edubox1.setSize(360, 50);
+		educationBox.setLocation(0, 0);
+		educationBox.setSize(360, 50);
 
-		eduscrollpane.setLocation(185, 194);
-		eduscrollpane.setSize(360, 50);
-		panel2.add(eduscrollpane);
+		educationScrollPane.setLocation(185, 194);
+		educationScrollPane.setSize(360, 50);
+		advancedPanel.add(educationScrollPane);
 
-		res1.setLocation(79, 259);
-		res1.setSize(96, 50);
-		res1.setHorizontalAlignment(JLabel.CENTER);
-		panel2.add(res1);
+		researchLabel.setLocation(79, 259);
+		researchLabel.setSize(96, 50);
+		researchLabel.setHorizontalAlignment(JLabel.CENTER);
+		advancedPanel.add(researchLabel);
 
-		resbox1.setLocation(0, 0);
-		resbox1.setSize(360, 50);
+		researchBox.setLocation(0, 0);
+		researchBox.setSize(360, 50);
 
-		resscrollpane.setLocation(185, 259);
-		resscrollpane.setSize(360, 50);
-		panel2.add(resscrollpane);
+		researchScrollPane.setLocation(185, 259);
+		researchScrollPane.setSize(360, 50);
+		advancedPanel.add(researchScrollPane);
 
-		cours1.setLocation(79, 324);
-		cours1.setSize(96, 75);
-		cours1.setHorizontalAlignment(JLabel.CENTER);
-		panel2.add(cours1);
+		courseLabel.setLocation(79, 324);
+		courseLabel.setSize(96, 75);
+		courseLabel.setHorizontalAlignment(JLabel.CENTER);
+		advancedPanel.add(courseLabel);
 
-		coursbox1.setLocation(0, 0);
-		coursbox1.setSize(345, 75);
+		courseBox.setLocation(0, 0);
+		courseBox.setSize(345, 75);
 
-		coursscrollpane.setLocation(185, 324);
-		coursscrollpane.setSize(360, 75);
-		panel2.add(coursscrollpane);
+		courseScrollPane.setLocation(185, 324);
+		courseScrollPane.setSize(360, 75);
+		advancedPanel.add(courseScrollPane);
 
-		cancel2.setLocation(558, 434);
-		cancel2.setSize(96, 25);
-		cancel2.addActionListener(ctrl);
-		panel2.add(cancel2);
+		cancelButton2.setLocation(558, 434);
+		cancelButton2.setSize(96, 25);
+		cancelButton2.addActionListener(ctrl);
+		advancedPanel.add(cancelButton2);
 
-		finish1.setLocation(442, 434);
-		finish1.setSize(96, 25);
-		finish1.addActionListener(ctrl);
-		panel2.add(finish1);
+		finishButton.setLocation(442, 434);
+		finishButton.setSize(96, 25);
+		finishButton.addActionListener(ctrl);
+		advancedPanel.add(finishButton);
 
-		root2.setVisible(true);
+		advancedFrame.setVisible(true);
 	}
 
 	@Override

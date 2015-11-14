@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import central.Creating;
+import model.Creator;
 import ui.NewProfUI;
 import ui.UI;
 
@@ -13,42 +13,49 @@ public class NewProfUIController implements Controller {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == ui.probutt1)
+		if (e.getSource() == ui.profButton)
 			isProf(true);
-		if (e.getSource() == ui.tabutt1)
+		if (e.getSource() == ui.taButton)
 			isProf(false);
-		if (e.getSource() == ui.cancel1)
+		if (e.getSource() == ui.cancelButton)
 			ui.dispose();
-		if (e.getSource() == ui.save1) {
-			Creating.createProf();
-			// this.dispose();
-		}
-		if (e.getSource() == ui.save2) {
-			Creating.createProf();
-			// this.dispose();
-			// new NewProfUI();
-		}
-		if (e.getSource() == ui.browse1)
+		if (e.getSource() == ui.saveButton1)
+			saveProf(0);
+		if (e.getSource() == ui.saveButton2)
+			saveProf(1);
+		if (e.getSource() == ui.browseButton)
 			;
 		// findPhoto(ui.photobox1);
-		if (e.getSource() == ui.advance1)
+		if (e.getSource() == ui.advancedButton)
 			ui.advanceProf();
-		if (e.getSource() == ui.cancel2)
-			ui.root2.dispose();
-		if (e.getSource() == ui.finish1) {
-			Creating.finishAdvance();
-			ui.root2.dispose();
+		if (e.getSource() == ui.cancelButton2)
+			ui.advancedFrame.dispose();
+		if (e.getSource() == ui.finishButton) {
+			Creator.finishAdvancedProf();
+			ui.advancedFrame.dispose();
 		}
 	}
 
 	public void isProf(Boolean thing) {
 		if (thing) {
-			if (ui.probutt1.isSelected())
-				ui.tabutt1.setSelected(false);
+			if (ui.profButton.isSelected())
+				ui.taButton.setSelected(false);
 		} else {
-			if (ui.tabutt1.isSelected())
-				ui.probutt1.setSelected(false);
+			if (ui.taButton.isSelected())
+				ui.profButton.setSelected(false);
 		}
+	}
+
+	void saveProf(int button) {
+		String type = "N/A";
+		if (NewProfUI.profButton.isSelected())
+			type = NewProfUI.profLabel.getText();
+		else if (NewProfUI.taButton.isSelected())
+			type = NewProfUI.taLabel.getText();
+		Creator.createProfessor(type);
+		ui.dispose();
+		if (button > 0)
+			new NewProfUI(new NewProfUIController());
 	}
 
 	@Override

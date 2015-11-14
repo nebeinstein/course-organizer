@@ -4,39 +4,39 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import central.Creating;
+import model.Creator;
 import ui.NewCourseUI;
 import ui.UI;
 
-public class NewCourseUIController implements Controller{
+public class NewCourseUIController implements Controller {
 	NewCourseUI ui;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == ui.enbutt1)
+		if (e.getSource() == ui.yesButton)
 			isEnroll(true);
-		if (e.getSource() == ui.enbutt2)
+		if (e.getSource() == ui.noButton)
 			isEnroll(false);
-		if (e.getSource() == ui.abutt1)
-			isGrade(ui.a1.getText());
-		if (e.getSource() == ui.bbutt1)
-			isGrade(ui.b1.getText());
-		if (e.getSource() == ui.cbutt1)
-			isGrade(ui.c1.getText());
-		if (e.getSource() == ui.nrbutt1)
-			isGrade(ui.nr1.getText());
-		if (e.getSource() == ui.lbutt1)
-			isGrade(ui.l1.getText());
-		if (e.getSource() == ui.ibutt1)
-			isGrade(ui.i1.getText());
-		if (e.getSource() == ui.nfbutt1)
-			isGrade(ui.nf1.getText());
-		if (e.getSource() == ui.cancel3)
+		if (e.getSource() == ui.aButton)
+			isGrade(ui.aLabel.getText());
+		if (e.getSource() == ui.bButton)
+			isGrade(ui.bLabel.getText());
+		if (e.getSource() == ui.cButton)
+			isGrade(ui.cLabel.getText());
+		if (e.getSource() == ui.nrButton)
+			isGrade(ui.nrLabel.getText());
+		if (e.getSource() == ui.lButton)
+			isGrade(ui.lLabel.getText());
+		if (e.getSource() == ui.iButton)
+			isGrade(ui.iLabel.getText());
+		if (e.getSource() == ui.nfButton)
+			isGrade(ui.nfLabel.getText());
+		if (e.getSource() == ui.cancelButton)
 			ui.dispose();
-		if (e.getSource() == ui.create2)
-			Creating.createCourse();
-		
-		if (e.getSource() == ui.schedbutt)
+		if (e.getSource() == ui.createButton)
+			saveCourse();
+
+		if (e.getSource() == ui.scheduleButton)
 			ui.schedWind();
 		if (e.getSource() == ui.fallbutt1)
 			isFall(true);
@@ -50,121 +50,141 @@ public class NewCourseUIController implements Controller{
 			noLab();
 		if (e.getSource() == ui.cancel4)
 			ui.root4.dispose();
-		if (e.getSource() == ui.finish2)
-			Creating.finishSched();
+		// if (e.getSource() == ui.finish2)
+		// Creator.finishSched();
 	}
+
 	public void isEnroll(Boolean thing) {
 		if (thing) {
-			if (ui.enbutt1.isSelected()) {
-				ui.enbutt2.setSelected(false);
+			if (ui.yesButton.isSelected()) {
+				ui.noButton.setSelected(false);
 				ui.grade.setEnabled(true);
-				ui.abutt1.setEnabled(true);
-				ui.a1.setEnabled(true);
-				ui.bbutt1.setEnabled(true);
-				ui.b1.setEnabled(true);
-				ui.cbutt1.setEnabled(true);
-				ui.c1.setEnabled(true);
-				ui.nrbutt1.setEnabled(true);
-				ui.nr1.setEnabled(true);
-				ui.lbutt1.setEnabled(true);
-				ui.l1.setEnabled(true);
-				ui.ibutt1.setEnabled(true);
-				ui.i1.setEnabled(true);
-				ui.nfbutt1.setEnabled(true);
-				ui.nf1.setEnabled(true);
+				ui.aButton.setEnabled(true);
+				ui.aLabel.setEnabled(true);
+				ui.bButton.setEnabled(true);
+				ui.bLabel.setEnabled(true);
+				ui.cButton.setEnabled(true);
+				ui.cLabel.setEnabled(true);
+				ui.nrButton.setEnabled(true);
+				ui.nrLabel.setEnabled(true);
+				ui.lButton.setEnabled(true);
+				ui.lLabel.setEnabled(true);
+				ui.iButton.setEnabled(true);
+				ui.iLabel.setEnabled(true);
+				ui.nfButton.setEnabled(true);
+				ui.nfLabel.setEnabled(true);
 			}
 		} else {
-			if (ui.enbutt2.isSelected()) {
-				ui.enbutt1.setSelected(false);
+			if (ui.noButton.isSelected()) {
+				ui.yesButton.setSelected(false);
 				ui.grade.setEnabled(false);
-				ui.abutt1.setEnabled(false);
-				ui.a1.setEnabled(false);
-				ui.bbutt1.setEnabled(false);
-				ui.b1.setEnabled(false);
-				ui.cbutt1.setEnabled(false);
-				ui.c1.setEnabled(false);
-				ui.nrbutt1.setEnabled(false);
-				ui.nr1.setEnabled(false);
-				ui.lbutt1.setEnabled(false);
-				ui.l1.setEnabled(false);
-				ui.ibutt1.setEnabled(false);
-				ui.i1.setEnabled(false);
-				ui.nfbutt1.setEnabled(false);
-				ui.nf1.setEnabled(false);
+				ui.aButton.setEnabled(false);
+				ui.aLabel.setEnabled(false);
+				ui.bButton.setEnabled(false);
+				ui.bLabel.setEnabled(false);
+				ui.cButton.setEnabled(false);
+				ui.cLabel.setEnabled(false);
+				ui.nrButton.setEnabled(false);
+				ui.nrLabel.setEnabled(false);
+				ui.lButton.setEnabled(false);
+				ui.lLabel.setEnabled(false);
+				ui.iButton.setEnabled(false);
+				ui.iLabel.setEnabled(false);
+				ui.nfButton.setEnabled(false);
+				ui.nfLabel.setEnabled(false);
 			}
 		}
 	}
+
 	public void isGrade(String grade) {
-		if (grade == ui.a1.getText()) {
-			if (ui.abutt1.isSelected()) {
-				ui.bbutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.aLabel.getText()) {
+			if (ui.aButton.isSelected()) {
+				ui.bButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.iButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.b1.getText()) {
-			if (ui.bbutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.bLabel.getText()) {
+			if (ui.bButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.iButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.c1.getText()) {
-			if (ui.cbutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.bbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.cLabel.getText()) {
+			if (ui.cButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.bButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.iButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.nr1.getText()) {
-			if (ui.nrbutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.bbutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.nrLabel.getText()) {
+			if (ui.nrButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.bButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.iButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.l1.getText()) {
-			if (ui.lbutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.bbutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.lLabel.getText()) {
+			if (ui.lButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.bButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.iButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.i1.getText()) {
-			if (ui.ibutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.bbutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.nfbutt1.setSelected(false);
+		if (grade == ui.iLabel.getText()) {
+			if (ui.iButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.bButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.nfButton.setSelected(false);
 			}
 		}
-		if (grade == ui.nf1.getText()) {
-			if (ui.nfbutt1.isSelected()) {
-				ui.abutt1.setSelected(false);
-				ui.bbutt1.setSelected(false);
-				ui.cbutt1.setSelected(false);
-				ui.nrbutt1.setSelected(false);
-				ui.lbutt1.setSelected(false);
-				ui.ibutt1.setSelected(false);
+		if (grade == ui.nfLabel.getText()) {
+			if (ui.nfButton.isSelected()) {
+				ui.aButton.setSelected(false);
+				ui.bButton.setSelected(false);
+				ui.cButton.setSelected(false);
+				ui.nrButton.setSelected(false);
+				ui.lButton.setSelected(false);
+				ui.iButton.setSelected(false);
 			}
 		}
+	}
+
+	public void saveCourse() {
+		String grade = "N/A";
+		if (ui.aButton.isSelected())
+			grade = "A";
+		else if (ui.bButton.isSelected())
+			grade = "B";
+		else if (ui.cButton.isSelected())
+			grade = "C";
+		else if (ui.lButton.isSelected())
+			grade = "L";
+		else if (ui.iButton.isSelected())
+			grade = "I";
+		else if (ui.nrButton.isSelected())
+			grade = "NR";
+		Creator.createCourse(grade);
+		ui.dispose();
 	}
 
 	public void isFall(Boolean thing) {
@@ -268,6 +288,7 @@ public class NewCourseUIController implements Controller{
 			ui.endam2.setEnabled(true);
 		}
 	}
+
 	public void noLab() {
 		if (ui.nonebutt3.isSelected()) {
 			ui.monbutt3.setEnabled(false);
@@ -306,58 +327,58 @@ public class NewCourseUIController implements Controller{
 		}
 	}
 
-		@Override
+	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void addUI(UI u) {
-		ui = (NewCourseUI)u;
-		
+		ui = (NewCourseUI) u;
+
 	}
 
 }

@@ -18,47 +18,49 @@ public class NewCourseUIHeader extends JFrame {
 	private static final long serialVersionUID = 4328260817709448975L;
 	// Controller
 	Controller ctrl;
-	
+
+	// String arrays
 	static String[] times = { "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00",
 			"12:00" };
 	static String[] ampm = { "AM", "PM" };
+
 	// For course window
-	JPanel panel3 = new JPanel();
-	JLabel name2 = new JLabel("Name");
-	public JTextField namebox2 = new JTextField();
-	JLabel dep2 = new JLabel("Department");
-	public JComboBox<String> depbox2 = new JComboBox<String>(MainUIHeader.deps);
-	JLabel num1 = new JLabel("Number");
-	public JTextField numbox1 = new JTextField();
-	JLabel pro2 = new JLabel("Professor");
-	public JComboBox<String> probox2 = new JComboBox<String>();
-	JLabel Ta2 = new JLabel("TA");
-	public JComboBox<String> tabox2 = new JComboBox<String>();
-	JLabel credits1 = new JLabel("Credits");
-	public JTextField creditsbox1 = new JTextField();
-	JLabel enroll = new JLabel("Enrolled");
-	public JRadioButton enbutt1 = new JRadioButton();
-	JLabel yes1 = new JLabel("Yes");
-	public JRadioButton enbutt2 = new JRadioButton();
-	JLabel no1 = new JLabel("No");
+	JPanel coursePanel = new JPanel();
+	JLabel nameLabel = new JLabel("Name");
+	public static JTextField nameBox = new JTextField();
+	JLabel departmentLabel = new JLabel("Department");
+	public static JComboBox<String> departmentBox = new JComboBox<String>(MainUIHeader.deps);
+	JLabel numberLabel = new JLabel("Number");
+	public static JTextField numberBox = new JTextField();
+	JLabel profLabel = new JLabel("Professor");
+	public static JComboBox<String> profBox = new JComboBox<String>();
+	JLabel taLabel = new JLabel("TA");
+	public static JComboBox<String> taBox = new JComboBox<String>();
+	JLabel creditsLabel = new JLabel("Credits");
+	public static JTextField creditsbox = new JTextField();
+	JLabel enrollLabel = new JLabel("Enrolled");
+	public static JRadioButton yesButton = new JRadioButton();
+	JLabel yesLabel = new JLabel("Yes");
+	public static JRadioButton noButton = new JRadioButton();
+	JLabel noLabel = new JLabel("No");
 	public JLabel grade = new JLabel("Grade");
-	public JRadioButton abutt1 = new JRadioButton();
-	public JLabel a1 = new JLabel("A");
-	public JRadioButton bbutt1 = new JRadioButton();
-	public JLabel b1 = new JLabel("B");
-	public JRadioButton cbutt1 = new JRadioButton();
-	public JLabel c1 = new JLabel("C");
-	public JRadioButton nrbutt1 = new JRadioButton();
-	public JLabel nr1 = new JLabel("NR");
-	public JRadioButton lbutt1 = new JRadioButton();
-	public JLabel l1 = new JLabel("L");
-	public JRadioButton ibutt1 = new JRadioButton();
-	public JLabel i1 = new JLabel("I");
-	public JRadioButton nfbutt1 = new JRadioButton();
-	public JLabel nf1 = new JLabel("In Progess");
-	public JButton cancel3 = new JButton("Cancel");
-	public JButton create2 = new JButton("Create");
-	public JButton schedbutt = new JButton("Schedule");
+	public static JRadioButton aButton = new JRadioButton();
+	public JLabel aLabel = new JLabel("A");
+	public static JRadioButton bButton = new JRadioButton();
+	public JLabel bLabel = new JLabel("B");
+	public static JRadioButton cButton = new JRadioButton();
+	public JLabel cLabel = new JLabel("C");
+	public JRadioButton nrButton = new JRadioButton();
+	public JLabel nrLabel = new JLabel("NR");
+	public JRadioButton lButton = new JRadioButton();
+	public JLabel lLabel = new JLabel("L");
+	public JRadioButton iButton = new JRadioButton();
+	public JLabel iLabel = new JLabel("I");
+	public JRadioButton nfButton = new JRadioButton();
+	public JLabel nfLabel = new JLabel("In Progess");
+	public JButton cancelButton = new JButton("Cancel");
+	public JButton createButton = new JButton("Create");
+	public JButton scheduleButton = new JButton("Schedule");
 
 	// For scheduling Window
 	public JFrame root4 = new JFrame();

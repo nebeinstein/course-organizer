@@ -20,8 +20,8 @@ public class Archivist {
 	public static ArrayList<Course> courses;
 	public static ArrayList<Requirement> require;
 	int location;
-	private boolean verboseOutputEnabled = true;
-	private final String datafile = "data";
+	private static boolean verboseOutputEnabled = true;
+	private final static String datafile = "data";
 
 	/**
 	 * Constructor for the archivist class.
@@ -77,10 +77,10 @@ public class Archivist {
 		String s = this.lines.get(location);
 		String[] professorData = new String[14];
 		int depth = 0;
-		while (depth<13) {
+		while (depth < 13) {
 			s = this.lines.get(location);
 			if (s.contains(";")) {
-				if(s.contains("{"))
+				if (s.contains("{"))
 					s = s.substring(s.indexOf("{") + 1);
 				String[] data = s.split(";");
 				for (String point : data) {
@@ -91,7 +91,7 @@ public class Archivist {
 			location++;
 		}
 		professors.add(new Professor(professorData));
-		say(professors.get(professors.size()-1).toString());
+		say(professors.get(professors.size() - 1).toString());
 	}
 
 	/**
@@ -103,12 +103,11 @@ public class Archivist {
 	 * @param payload
 	 *            - The Object whose data you want to save
 	 */
-	public void savePayload(String type, Object payload) {
-		say("Saving...");
+	public static void savePayload(String type, Object payload) {
+		say("Archivist: Saving...");
 		try {
 			say("Opening file...");
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(
-					datafile),true));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(datafile), true));
 			say("Writing header...");
 			bw.newLine();
 			bw.write(type + "{");
@@ -127,8 +126,8 @@ public class Archivist {
 			ex.printStackTrace();
 		}
 		say("Save complete.");
-		if(type.equals("professor")){
-			professors.add((Professor)payload);
+		if (type.equals("professor")) {
+			professors.add((Professor) payload);
 		}
 	}
 
@@ -136,7 +135,7 @@ public class Archivist {
 		new Archivist();
 	}
 
-	private void say(String s) {
+	private static void say(String s) {
 		if (verboseOutputEnabled)
 			System.out.println("Archivist: " + s);
 	}

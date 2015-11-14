@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import central.Creating;
+import model.Creator;
 import ui.NewDegreeUI;
 import ui.UI;
 
@@ -20,7 +20,7 @@ public class NewDegreeUIController implements Controller{
 		if (e.getSource() == ui.cancel5)
 			ui.dispose();
 		if (e.getSource() == ui.create3)
-			Creating.createDegree();
+			Creator.createDegree();
 	}
 
 	public void isGrad(Boolean thing) {

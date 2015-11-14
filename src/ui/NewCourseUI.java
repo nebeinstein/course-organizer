@@ -38,190 +38,190 @@ public class NewCourseUI extends NewCourseUIHeader implements UI {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-		panel3.setSize(500, 553);
-		panel3.setLayout(null);
-		add(panel3, BorderLayout.CENTER);
+		coursePanel.setSize(500, 553);
+		coursePanel.setLayout(null);
+		add(coursePanel, BorderLayout.CENTER);
 
-		name2.setLocation(39, 39);
-		name2.setSize(96, 25);
-		name2.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(name2);
+		nameLabel.setLocation(39, 39);
+		nameLabel.setSize(96, 25);
+		nameLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(nameLabel);
 
-		namebox2.setLocation(145, 39);
-		namebox2.setSize(224, 25);
-		panel3.add(namebox2);
+		nameBox.setLocation(145, 39);
+		nameBox.setSize(224, 25);
+		coursePanel.add(nameBox);
 
-		dep2.setLocation(39, 79);
-		dep2.setSize(96, 25);
-		dep2.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(dep2);
+		departmentLabel.setLocation(39, 79);
+		departmentLabel.setSize(96, 25);
+		departmentLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(departmentLabel);
 
-		depbox2.setLocation(145, 79);
-		depbox2.setSize(224, 25);
-		panel3.add(depbox2);
+		departmentBox.setLocation(145, 79);
+		departmentBox.setSize(224, 25);
+		coursePanel.add(departmentBox);
 
-		num1.setLocation(39, 119);
-		num1.setSize(96, 25);
-		num1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(num1);
+		numberLabel.setLocation(39, 119);
+		numberLabel.setSize(96, 25);
+		numberLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(numberLabel);
 
-		numbox1.setLocation(145, 119);
-		numbox1.setSize(224, 25);
-		panel3.add(numbox1);
+		numberBox.setLocation(145, 119);
+		numberBox.setSize(224, 25);
+		coursePanel.add(numberBox);
 
-		pro2.setLocation(39, 159);
-		pro2.setSize(96, 25);
-		pro2.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(pro2);
+		profLabel.setLocation(39, 159);
+		profLabel.setSize(96, 25);
+		profLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(profLabel);
 
-		probox2.setLocation(145, 159);
-		probox2.setSize(224, 25);
-		probox2.removeAllItems();
-		probox2.addItem("--- Select One ---");
+		profBox.setLocation(145, 159);
+		profBox.setSize(224, 25);
+		profBox.removeAllItems();
+		profBox.addItem("--- Select One ---");
 		for (Professor p : Main.DUMDUM.profs) {
-			probox2.addItem(p.name);
+			profBox.addItem(p.name);
 		}
-		probox2.addItem("N/A");
-		panel3.add(probox2);
+		profBox.addItem("N/A");
+		coursePanel.add(profBox);
 
-		Ta2.setLocation(39, 199);
-		Ta2.setSize(96, 25);
-		Ta2.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(Ta2);
+		taLabel.setLocation(39, 199);
+		taLabel.setSize(96, 25);
+		taLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(taLabel);
 
-		tabox2.setLocation(145, 199);
-		tabox2.setSize(224, 25);
-		tabox2.removeAllItems();
-		tabox2.addItem("--- Select One ---");
+		taBox.setLocation(145, 199);
+		taBox.setSize(224, 25);
+		taBox.removeAllItems();
+		taBox.addItem("--- Select One ---");
 		for (Professor p : Main.DUMDUM.tas) {
-			tabox2.addItem(p.name);
+			taBox.addItem(p.name);
 		}
-		tabox2.addItem("N/A");
-		panel3.add(tabox2);
+		taBox.addItem("N/A");
+		coursePanel.add(taBox);
 
-		credits1.setLocation(39, 239);
-		credits1.setSize(96, 25);
-		credits1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(credits1);
+		creditsLabel.setLocation(39, 239);
+		creditsLabel.setSize(96, 25);
+		creditsLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(creditsLabel);
 
-		creditsbox1.setLocation(145, 239);
-		creditsbox1.setSize(224, 25);
-		panel3.add(creditsbox1);
+		creditsbox.setLocation(145, 239);
+		creditsbox.setSize(224, 25);
+		coursePanel.add(creditsbox);
 
-		enroll.setLocation(39, 279);
-		enroll.setSize(96, 25);
-		enroll.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(enroll);
+		enrollLabel.setLocation(39, 279);
+		enrollLabel.setSize(96, 25);
+		enrollLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(enrollLabel);
 
-		enbutt1.setLocation(145, 283);
-		enbutt1.setSize(15, 15);
-		enbutt1.addActionListener(ctrl);
-		panel3.add(enbutt1);
+		yesButton.setLocation(145, 283);
+		yesButton.setSize(15, 15);
+		yesButton.addActionListener(ctrl);
+		coursePanel.add(yesButton);
 
-		yes1.setLocation(145, 279);
-		yes1.setSize(96, 25);
-		yes1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(yes1);
+		yesLabel.setLocation(145, 279);
+		yesLabel.setSize(96, 25);
+		yesLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(yesLabel);
 
-		enbutt2.setLocation(245, 283);
-		enbutt2.setSize(15, 15);
-		enbutt2.addActionListener(ctrl);
-		panel3.add(enbutt2);
+		noButton.setLocation(245, 283);
+		noButton.setSize(15, 15);
+		noButton.addActionListener(ctrl);
+		coursePanel.add(noButton);
 
-		no1.setLocation(245, 279);
-		no1.setSize(96, 25);
-		no1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(no1);
+		noLabel.setLocation(245, 279);
+		noLabel.setSize(96, 25);
+		noLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(noLabel);
 
 		grade.setLocation(39, 319);
 		grade.setSize(96, 25);
 		grade.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(grade);
+		coursePanel.add(grade);
 
-		abutt1.setLocation(145, 325);
-		abutt1.setSize(15, 15);
-		abutt1.addActionListener(ctrl);
-		panel3.add(abutt1);
+		aButton.setLocation(145, 325);
+		aButton.setSize(15, 15);
+		aButton.addActionListener(ctrl);
+		coursePanel.add(aButton);
 
-		a1.setLocation(120, 319);
-		a1.setSize(96, 25);
-		a1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(a1);
+		aLabel.setLocation(120, 319);
+		aLabel.setSize(96, 25);
+		aLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(aLabel);
 
-		bbutt1.setLocation(200, 325);
-		bbutt1.setSize(15, 15);
-		bbutt1.addActionListener(ctrl);
-		panel3.add(bbutt1);
+		bButton.setLocation(200, 325);
+		bButton.setSize(15, 15);
+		bButton.addActionListener(ctrl);
+		coursePanel.add(bButton);
 
-		b1.setLocation(175, 319);
-		b1.setSize(96, 25);
-		b1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(b1);
+		bLabel.setLocation(175, 319);
+		bLabel.setSize(96, 25);
+		bLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(bLabel);
 
-		cbutt1.setLocation(255, 325);
-		cbutt1.setSize(15, 15);
-		cbutt1.addActionListener(ctrl);
-		panel3.add(cbutt1);
+		cButton.setLocation(255, 325);
+		cButton.setSize(15, 15);
+		cButton.addActionListener(ctrl);
+		coursePanel.add(cButton);
 
-		c1.setLocation(230, 319);
-		c1.setSize(95, 25);
-		c1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(c1);
+		cLabel.setLocation(230, 319);
+		cLabel.setSize(95, 25);
+		cLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(cLabel);
 
-		nrbutt1.setLocation(310, 325);
-		nrbutt1.setSize(15, 15);
-		nrbutt1.addActionListener(ctrl);
-		panel3.add(nrbutt1);
+		nrButton.setLocation(310, 325);
+		nrButton.setSize(15, 15);
+		nrButton.addActionListener(ctrl);
+		coursePanel.add(nrButton);
 
-		nr1.setLocation(288, 319);
-		nr1.setSize(96, 25);
-		nr1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(nr1);
+		nrLabel.setLocation(288, 319);
+		nrLabel.setSize(96, 25);
+		nrLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(nrLabel);
 
-		lbutt1.setLocation(365, 325);
-		lbutt1.setSize(15, 15);
-		lbutt1.addActionListener(ctrl);
-		panel3.add(lbutt1);
+		lButton.setLocation(365, 325);
+		lButton.setSize(15, 15);
+		lButton.addActionListener(ctrl);
+		coursePanel.add(lButton);
 
-		l1.setLocation(340, 319);
-		l1.setSize(96, 25);
-		l1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(l1);
+		lLabel.setLocation(340, 319);
+		lLabel.setSize(96, 25);
+		lLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(lLabel);
 
-		ibutt1.setLocation(145, 355);
-		ibutt1.setSize(15, 15);
-		ibutt1.addActionListener(ctrl);
-		panel3.add(ibutt1);
+		iButton.setLocation(145, 355);
+		iButton.setSize(15, 15);
+		iButton.addActionListener(ctrl);
+		coursePanel.add(iButton);
 
-		i1.setLocation(120, 349);
-		i1.setSize(96, 25);
-		i1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(i1);
+		iLabel.setLocation(120, 349);
+		iLabel.setSize(96, 25);
+		iLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(iLabel);
 
-		nfbutt1.setLocation(200, 355);
-		nfbutt1.setSize(15, 15);
-		nfbutt1.addActionListener(ctrl);
-		panel3.add(nfbutt1);
+		nfButton.setLocation(200, 355);
+		nfButton.setSize(15, 15);
+		nfButton.addActionListener(ctrl);
+		coursePanel.add(nfButton);
 
-		nf1.setLocation(203, 349);
-		nf1.setSize(96, 25);
-		nf1.setHorizontalAlignment(JLabel.CENTER);
-		panel3.add(nf1);
+		nfLabel.setLocation(203, 349);
+		nfLabel.setSize(96, 25);
+		nfLabel.setHorizontalAlignment(JLabel.CENTER);
+		coursePanel.add(nfLabel);
 
-		cancel3.setLocation(380, 490);
-		cancel3.setSize(96, 25);
-		cancel3.addActionListener(ctrl);
-		panel3.add(cancel3);
+		cancelButton.setLocation(380, 490);
+		cancelButton.setSize(96, 25);
+		cancelButton.addActionListener(ctrl);
+		coursePanel.add(cancelButton);
 
-		create2.setLocation(266, 490);
-		create2.setSize(96, 25);
-		create2.addActionListener(ctrl);
-		panel3.add(create2);
+		createButton.setLocation(266, 490);
+		createButton.setSize(96, 25);
+		createButton.addActionListener(ctrl);
+		coursePanel.add(createButton);
 
-		schedbutt.setLocation(150, 490);
-		schedbutt.setSize(96, 25);
-		schedbutt.addActionListener(ctrl);
-		panel3.add(schedbutt);
+		scheduleButton.setLocation(150, 490);
+		scheduleButton.setSize(96, 25);
+		scheduleButton.addActionListener(ctrl);
+		coursePanel.add(scheduleButton);
 	}
 
 	public void schedWind() {

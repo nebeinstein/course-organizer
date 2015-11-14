@@ -18,8 +18,9 @@ public class Professor {
 	public String edu;
 	public String research;
 	public String courses;
-	
-	public Professor(String[] professorData){
+
+	public Professor(String[] professorData) {
+		int n = professorData.length;
 		int i = 0;
 		name = professorData[i++];
 		office = professorData[i++];
@@ -29,15 +30,16 @@ public class Professor {
 		dep = professorData[i++];
 		type = professorData[i++];
 		photo = professorData[i++];
-		title = professorData[i++];
-		describe = professorData[i++];
-		edu = professorData[i++];
-		research = professorData[i++];
-		courses = professorData[i++];
+		if (n > 8) {
+			title = professorData[i++];
+			describe = professorData[i++];
+			edu = professorData[i++];
+			research = professorData[i++];
+			courses = professorData[i++];
+		}
 	}
 
-	public Professor(String Name, String Office, String Phone, String Fax,
-			String Email, String Dep) {
+	public Professor(String Name, String Office, String Phone, String Fax, String Email, String Dep) {
 		name = Name;
 		office = Office;
 		phone = Phone;
@@ -46,8 +48,7 @@ public class Professor {
 		dep = Dep;
 	}
 
-	public void detail(String Title, String Edu, String Research,
-			String Courses) {
+	public void detail(String Title, String Edu, String Research, String Courses) {
 		title = Title;
 		edu = Edu;
 		research = Research;
@@ -61,8 +62,8 @@ public class Professor {
 	public void picture(String Photo) {
 		photo = Photo;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		String s = name;
 		s += ";" + office;
 		s += ";" + phone;

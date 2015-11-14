@@ -6,8 +6,8 @@ import java.awt.event.MouseEvent;
 
 import objects.Grad;
 import objects.UnderGrad;
-import central.Creating;
 import central.Main;
+import model.Creator;
 import ui.NewRequirementUI;
 import ui.UI;
 
@@ -26,7 +26,7 @@ public class NewRequirementUIController implements Controller {
 		if (e.getSource() == ui.cancel6)
 			ui.dispose();
 		if (e.getSource() == ui.create4)
-			Creating.createRequire();
+			Creator.createRequire();
 
 	}
 

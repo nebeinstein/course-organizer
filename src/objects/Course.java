@@ -5,14 +5,14 @@ public class Course {
 	 * Written by Nicole Beinstein
 	 */
 
-	public String name; //PH-511-Classical Mechanics
+	public String name; // PH-511-Classical Mechanics
 	public String profname;
 	public String taname;
 	public String credits;
-	public boolean enrolled = false;
 	public String grade;
-	int year;
+	public boolean enrolled = false;
 
+	int year;
 	boolean lecture;
 	boolean conf;
 	boolean lab;
@@ -21,17 +21,26 @@ public class Course {
 	String confdays;
 	String labdays;
 	String term;
-	
-	public Course(String Name, String Profname,
-			String Taname, String Credits) {
+
+	public Course(String[] courseData, boolean Enrolled) {
+		int i = 0;
+		name = courseData[i++];
+		profname = courseData[i++];
+		taname = courseData[i++];
+		credits = courseData[i++];
+		grade = courseData[i++];
+		enrolled = Enrolled;
+	}
+
+	public Course(String Name, String Profname, String Taname, String Credits) {
 		name = Name;
 		profname = Profname;
 		taname = Taname;
 		credits = Credits;
 	}
-	
+
 	public boolean passed() {
-		return "ABC".contains(grade);
+		return "ABCL".contains(grade);
 	}
 
 	public void enroll(int Year, String Term, String Section) {
@@ -39,35 +48,39 @@ public class Course {
 		year = Year;
 		term = Term;
 	}
-	
-	public void finish(String Grade){
+
+	public void finish(String Grade) {
 		grade = Grade;
 	}
-	
+
 	/**
 	 * Gets the department name for this course
+	 * 
 	 * @returns The department(s) the course falls under as a string.
 	 */
-	public String getDepartment(){
+	public String getDepartment() {
 		return name.split("-")[0];
 	}
+
 	/**
 	 * Gets the number for this course
+	 * 
 	 * @returns The course number as a string.
 	 */
-	public String getCourseNumber(){
+	public String getCourseNumber() {
 		return name.split("-")[1];
 	}
+
 	/**
 	 * Gets the course name for this course.
+	 * 
 	 * @returns The course name as a string.
 	 */
-	public String getCourseName(){
+	public String getCourseName() {
 		return name.split("-")[2];
 	}
 
-	public void schedSetup(String list, String days, String startTime,
-			String endTime) {
+	public void schedSetup(String list, String days, String startTime, String endTime) {
 
 	}
 
